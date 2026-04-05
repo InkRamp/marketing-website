@@ -569,40 +569,55 @@
             </div>
           </div>
 
-          <form class="contact-form reveal reveal-delay-1" id="contact-form" novalidate>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Full Name <span class="required" aria-hidden="true">*</span></label>
-                <input type="text" id="name" name="name" placeholder="Jane Smith" autocomplete="name" required />
-                <span class="form-error" id="name-error" role="alert"></span>
+          <div class="contact-form-area reveal reveal-delay-1">
+
+            <!-- Contact form — hidden once submitted -->
+            <!-- Endpoint: sign up at formspree.io, create a form, then replace REPLACE_WITH_YOUR_FORM_ID below -->
+            <form class="contact-form" id="contact-form"
+                  data-action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID"
+                  novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Full Name <span class="required" aria-hidden="true">*</span></label>
+                  <input type="text" id="name" name="name" placeholder="Jane Smith" autocomplete="name" required />
+                  <span class="form-error" id="name-error" role="alert"></span>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address <span class="required" aria-hidden="true">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" required />
+                  <span class="form-error" id="email-error" role="alert"></span>
+                </div>
               </div>
               <div class="form-group">
-                <label for="email">Email Address <span class="required" aria-hidden="true">*</span></label>
-                <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" required />
-                <span class="form-error" id="email-error" role="alert"></span>
+                <label for="subject">Subject <span class="required" aria-hidden="true">*</span></label>
+                <select id="subject" name="subject" required>
+                  <option value="">Select a topic…</option>
+                  <option value="demo">Request a Demo</option>
+                  <option value="partnership">Partnership Enquiry</option>
+                  <option value="technical">Technical Question</option>
+                  <option value="other">Other</option>
+                </select>
+                <span class="form-error" id="subject-error" role="alert"></span>
               </div>
+              <div class="form-group">
+                <label for="message">Message <span class="required" aria-hidden="true">*</span></label>
+                <textarea id="message" name="message" rows="5" placeholder="Tell us about your use case or question…" required></textarea>
+                <span class="form-error" id="message-error" role="alert"></span>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg btn-full" id="submit-btn">
+                <span class="btn-text">Send Message</span>
+              </button>
+            </form>
+
+            <!-- Success panel — fades in after submission -->
+            <div class="contact-success-panel" id="contact-success-panel" aria-hidden="true" aria-live="polite">
+              <div class="success-icon" aria-hidden="true">✅</div>
+              <h3 class="success-title">Message Sent!</h3>
+              <p class="success-text">Thank you for reaching out. We'll be in touch soon.</p>
+              <a href="#features" class="btn btn-outline">Explore Features</a>
             </div>
-            <div class="form-group">
-              <label for="subject">Subject <span class="required" aria-hidden="true">*</span></label>
-              <select id="subject" name="subject" required>
-                <option value="">Select a topic…</option>
-                <option value="demo">Request a Demo</option>
-                <option value="partnership">Partnership Enquiry</option>
-                <option value="technical">Technical Question</option>
-                <option value="other">Other</option>
-              </select>
-              <span class="form-error" id="subject-error" role="alert"></span>
-            </div>
-            <div class="form-group">
-              <label for="message">Message <span class="required" aria-hidden="true">*</span></label>
-              <textarea id="message" name="message" rows="5" placeholder="Tell us about your use case or question…" required></textarea>
-              <span class="form-error" id="message-error" role="alert"></span>
-            </div>
-            <button type="submit" class="btn btn-primary btn-lg btn-full" id="submit-btn">
-              Send Message
-            </button>
-            <div class="form-success" id="form-success" role="status" aria-live="polite"></div>
-          </form>
+
+          </div>
 
         </div>
       </div>
