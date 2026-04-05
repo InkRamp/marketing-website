@@ -1,4 +1,4 @@
-/* global.js — i17e static site */
+/* main.js — i17e static site */
 (function () {
   'use strict';
 
