@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="i17e — Sales Incentive Compensation Management Platform. Automate, govern, and optimise every sales incentive from rule creation to executive insight." />
+  <meta name="keywords" content="sales incentive, compensation management, SICM, sales ops, incentive platform" />
+  <meta property="og:title" content="i17e · Sales Incentive Management Platform" />
+  <meta property="og:description" content="Automate, govern, and optimise every sales incentive — from rule creation to executive insight." />
+  <meta property="og:type" content="website" />
+  <title>i17e · Sales Incentive Management Platform</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ════════════════════════════ HEADER ════════════════════════════ -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="#home" class="logo" aria-label="i17e home">
+        <span class="logo-mark">i<span class="logo-accent">17</span>e</span>
+        <span class="logo-tagline">Incentive Platform</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a href="#home"     class="nav-link active">Home</a></li>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#gallery"  class="nav-link">Gallery</a></li>
+          <li><a href="#roadmap"  class="nav-link">Roadmap</a></li>
+          <li><a href="#about"    class="nav-link">About Us</a></li>
+          <li><a href="#contact"  class="nav-link">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <a href="#contact" class="btn btn-primary header-cta">Get in Touch</a>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ════════════════════════════ HERO / HOME ════════════════════════════ -->
+    <section class="hero" id="home">
+      <div class="hero-bg-grid" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-content reveal">
+          <span class="badge badge-green">✅ MVP 1 Complete</span>
+          <h1 class="hero-title">
+            Sales Incentive<br />
+            <span class="gradient-text">Management, Simplified</span>
+          </h1>
+          <p class="hero-subtitle">
+            i17e is the <strong>Sales Incentive Compensation Management (SICM)</strong> platform
+            that gives sales ops teams the tools to define, manage, and analyse
+            incentive programmes at scale — from rule creation to executive insight.
+          </p>
+          <div class="hero-actions">
+            <a href="https://opensourcekd.github.io/i17e/" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+              Live Demo &rarr;
+            </a>
+            <a href="#features" class="btn btn-outline btn-lg">Explore Features</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">API Test Coverage</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat">
+              <span class="stat-number">4</span>
+              <span class="stat-label">Months to MVP</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat">
+              <span class="stat-number">Auth0</span>
+              <span class="stat-label">SSO Security</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual reveal reveal-delay-1" aria-hidden="true">
+          <div class="dashboard-mock">
+            <div class="mock-bar">
+              <span class="mock-dot red"></span>
+              <span class="mock-dot yellow"></span>
+              <span class="mock-dot green"></span>
+              <span class="mock-url">i17e · Incentive Dashboard</span>
+            </div>
+            <div class="mock-body">
+              <div class="mock-sidebar">
+                <div class="mock-nav-item active"></div>
+                <div class="mock-nav-item"></div>
+                <div class="mock-nav-item"></div>
+                <div class="mock-nav-item"></div>
+              </div>
+              <div class="mock-content">
+                <div class="mock-row">
+                  <div class="mock-card card-blue"></div>
+                  <div class="mock-card card-green"></div>
+                  <div class="mock-card card-orange"></div>
+                </div>
+                <div class="mock-chart"></div>
+                <div class="mock-table">
+                  <div class="mock-row-line"></div>
+                  <div class="mock-row-line short"></div>
+                  <div class="mock-row-line"></div>
+                  <div class="mock-row-line short"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll-hint">
+        <span>Scroll to explore</span>
+        <div class="scroll-arrow" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════ WHO IT'S FOR ════════════════════════════ -->
+    <section class="personas" id="who">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">Built for Every Stakeholder</h2>
+          <p class="section-subtitle">One platform, four perspectives.</p>
+        </div>
+        <div class="personas-grid">
+          <div class="persona-card reveal">
+            <div class="persona-icon" style="background: #dbeafe;">🛠️</div>
+            <h3>Sales Ops / Admins</h3>
+            <p>Create and manage incentive rules without writing a single line of code.</p>
+          </div>
+          <div class="persona-card reveal reveal-delay-1">
+            <div class="persona-icon" style="background: #dcfce7;">📊</div>
+            <h3>Sales Executives</h3>
+            <p>Real-time visibility into earnings, quota attainment, and deal pipeline.</p>
+          </div>
+          <div class="persona-card reveal reveal-delay-2">
+            <div class="persona-icon" style="background: #fef3c7;">💼</div>
+            <h3>Finance &amp; Leadership</h3>
+            <p>Accurate reconciliation, audit trails, and executive-level analytics.</p>
+          </div>
+          <div class="persona-card reveal reveal-delay-3">
+            <div class="persona-icon" style="background: #f3e8ff;">⚙️</div>
+            <h3>Engineering Teams</h3>
+            <p>Production-grade API with 100% automated test coverage and dual-DB flexibility.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════ FEATURES ════════════════════════════ -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="badge badge-blue">MVP 1 — Foundation</span>
+          <h2 class="section-title">Everything You Need, Out of the Box</h2>
+          <p class="section-subtitle">Core capabilities shipped and production-tested from day one.</p>
+        </div>
+        <div class="features-grid">
+
+          <div class="feature-card reveal">
+            <div class="feature-icon">🖥️</div>
+            <h3 class="feature-title">Prototype UI</h3>
+            <p class="feature-desc">Angular shell with MFE-ready architecture, responsive layouts, and a design-token system.</p>
+            <ul class="feature-tags">
+              <li>Angular</li><li>Module Federation</li><li>TypeScript</li>
+            </ul>
+          </div>
+
+          <div class="feature-card reveal reveal-delay-1">
+            <div class="feature-icon">🔌</div>
+            <h3 class="feature-title">REST API Endpoints</h3>
+            <p class="feature-desc">Full CRUD for incentive rules — versioned, schema-validated, and documented end-to-end.</p>
+            <ul class="feature-tags">
+              <li>AWS Lambda</li><li>middy</li><li>OpenAPI</li>
+            </ul>
+          </div>
+
+          <div class="feature-card reveal reveal-delay-2">
+            <div class="feature-icon">🔐</div>
+            <h3 class="feature-title">Auth0 Integration</h3>
+            <p class="feature-desc">SSO login, logout, silent token refresh, and role-based route guards — enterprise-grade from the start.</p>
+            <ul class="feature-tags">
+              <li>Auth0</li><li>OAuth2</li><li>RBAC</li>
+            </ul>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-icon">🧪</div>
+            <h3 class="feature-title">100% Test Coverage</h3>
+            <p class="feature-desc">Every endpoint covered — happy paths, edge cases, and security assertions. Zero regressions.</p>
+            <ul class="feature-tags">
+              <li>Automated</li><li>Edge Cases</li><li>Security</li>
+            </ul>
+          </div>
+
+          <div class="feature-card reveal reveal-delay-1">
+            <div class="feature-icon">🛡️</div>
+            <h3 class="feature-title">Data Compliance &amp; Security</h3>
+            <p class="feature-desc">Input sanitisation, HTTPS-only, CORS policy, and secrets managed via environment config.</p>
+            <ul class="feature-tags">
+              <li>HTTPS</li><li>CORS</li><li>Sanitisation</li>
+            </ul>
+          </div>
+
+          <div class="feature-card reveal reveal-delay-2">
+            <div class="feature-icon">🗄️</div>
+            <h3 class="feature-title">Dual Database Support</h3>
+            <p class="feature-desc">Pluggable adapter layer — run on-prem or cloud-managed with zero code changes.</p>
+            <ul class="feature-tags">
+              <li>On-Prem</li><li>Cloud</li><li>Adapters</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════ GALLERY (Product Snapshots) ════════════════════════════ -->
+    <section class="gallery" id="gallery">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">Product Snapshots</h2>
+          <p class="section-subtitle">A glimpse into the i17e interface across key workflows.</p>
+        </div>
+
+        <div class="gallery-grid">
+
+          <!-- Card 1 — Incentive Rules Dashboard -->
+          <div class="gallery-card reveal">
+            <div class="gallery-thumb" style="background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 60%, #3b82f6 100%);">
+              <!-- Placeholder: replace with a 900×500 screenshot at ≥1x, 1800×1000 at 2x -->
+              <!-- On mobile: 100% width; on tablet: 50%; on desktop: 33% -->
+              <picture>
+                <!-- Hi-DPI desktop: 900w -->
+                <source media="(min-width: 1024px)" srcset="images/snapshot-rules-900.webp 1x, images/snapshot-rules-1800.webp 2x" />
+                <!-- Tablet: 600w -->
+                <source media="(min-width: 640px)" srcset="images/snapshot-rules-600.webp 1x, images/snapshot-rules-1200.webp 2x" />
+                <!-- Mobile fallback: 400w -->
+                <img src="images/snapshot-rules-400.webp" alt="Incentive Rules Dashboard — CRUD operations and rule builder" loading="lazy" width="900" height="500" class="gallery-img" />
+              </picture>
+              <div class="gallery-overlay">
+                <span class="gallery-label">📋 Rules Dashboard</span>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h3>Incentive Rule Management</h3>
+              <p>CRUD operations · Rule builder · Effective-date controls · Audit trail</p>
+              <div class="gallery-dims">900 × 500 px &nbsp;·&nbsp; desktop</div>
+            </div>
+          </div>
+
+          <!-- Card 2 — Sales Dashboard -->
+          <div class="gallery-card reveal reveal-delay-1">
+            <div class="gallery-thumb" style="background: linear-gradient(135deg, #064e3b 0%, #059669 60%, #34d399 100%);">
+              <picture>
+                <source media="(min-width: 1024px)" srcset="images/snapshot-sales-900.webp 1x, images/snapshot-sales-1800.webp 2x" />
+                <source media="(min-width: 640px)" srcset="images/snapshot-sales-600.webp 1x, images/snapshot-sales-1200.webp 2x" />
+                <img src="images/snapshot-sales-400.webp" alt="Sales Dashboard — quota attainment and incentive earned" loading="lazy" width="900" height="500" class="gallery-img" />
+              </picture>
+              <div class="gallery-overlay">
+                <span class="gallery-label">💹 Sales Dashboard</span>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h3>Sales Dashboard</h3>
+              <p>Quota attainment · Incentive earned · Deal pipeline · Period comparison</p>
+              <div class="gallery-dims">900 × 500 px &nbsp;·&nbsp; desktop</div>
+            </div>
+          </div>
+
+          <!-- Card 3 — Analytics Dashboard -->
+          <div class="gallery-card reveal reveal-delay-2">
+            <div class="gallery-thumb" style="background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 60%, #a78bfa 100%);">
+              <picture>
+                <source media="(min-width: 1024px)" srcset="images/snapshot-analytics-900.webp 1x, images/snapshot-analytics-1800.webp 2x" />
+                <source media="(min-width: 640px)" srcset="images/snapshot-analytics-600.webp 1x, images/snapshot-analytics-1200.webp 2x" />
+                <img src="images/snapshot-analytics-400.webp" alt="Analytics Dashboard — executive level insights" loading="lazy" width="900" height="500" class="gallery-img" />
+              </picture>
+              <div class="gallery-overlay">
+                <span class="gallery-label">📈 Analytics</span>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h3>Analytics Dashboard</h3>
+              <p>Team performance · Incentive ROI · Cohort trends · Executive summary</p>
+              <div class="gallery-dims">900 × 500 px &nbsp;·&nbsp; desktop</div>
+            </div>
+          </div>
+
+          <!-- Card 4 — Mobile View -->
+          <div class="gallery-card reveal">
+            <div class="gallery-thumb gallery-thumb--tall" style="background: linear-gradient(160deg, #0c4a6e 0%, #0284c7 60%, #38bdf8 100%);">
+              <picture>
+                <!-- Mobile screenshot: 390×844 (iPhone 14) -->
+                <source media="(min-width: 640px)" srcset="images/snapshot-mobile-390.webp 1x, images/snapshot-mobile-780.webp 2x" />
+                <img src="images/snapshot-mobile-390.webp" alt="i17e mobile responsive view" loading="lazy" width="390" height="844" class="gallery-img gallery-img--mobile" />
+              </picture>
+              <div class="gallery-overlay">
+                <span class="gallery-label">📱 Mobile View</span>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h3>Mobile-Ready UI</h3>
+              <p>Fully responsive · PWA-capable · Touch-optimised</p>
+              <div class="gallery-dims">390 × 844 px &nbsp;·&nbsp; mobile (iPhone 14)</div>
+            </div>
+          </div>
+
+          <!-- Card 5 — Auth/Login -->
+          <div class="gallery-card reveal reveal-delay-1">
+            <div class="gallery-thumb" style="background: linear-gradient(135deg, #7f1d1d 0%, #dc2626 60%, #f87171 100%);">
+              <picture>
+                <source media="(min-width: 1024px)" srcset="images/snapshot-auth-900.webp 1x, images/snapshot-auth-1800.webp 2x" />
+                <source media="(min-width: 640px)" srcset="images/snapshot-auth-600.webp 1x, images/snapshot-auth-1200.webp 2x" />
+                <img src="images/snapshot-auth-400.webp" alt="Auth0 SSO login screen" loading="lazy" width="900" height="500" class="gallery-img" />
+              </picture>
+              <div class="gallery-overlay">
+                <span class="gallery-label">🔐 Auth0 SSO</span>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h3>Auth0 SSO Integration</h3>
+              <p>Secure login · Silent token refresh · Role-based guards</p>
+              <div class="gallery-dims">900 × 500 px &nbsp;·&nbsp; desktop</div>
+            </div>
+          </div>
+
+          <!-- Card 6 — API Test Report -->
+          <div class="gallery-card reveal reveal-delay-2">
+            <div class="gallery-thumb" style="background: linear-gradient(135deg, #1c1917 0%, #44403c 60%, #a8a29e 100%);">
+              <picture>
+                <source media="(min-width: 1024px)" srcset="images/snapshot-tests-900.webp 1x, images/snapshot-tests-1800.webp 2x" />
+                <source media="(min-width: 640px)" srcset="images/snapshot-tests-600.webp 1x, images/snapshot-tests-1200.webp 2x" />
+                <img src="images/snapshot-tests-400.webp" alt="100% API test coverage report" loading="lazy" width="900" height="500" class="gallery-img" />
+              </picture>
+              <div class="gallery-overlay">
+                <span class="gallery-label">🧪 100% Test Coverage</span>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h3>API Test Coverage Report</h3>
+              <p>Happy paths · Edge cases · Security assertions · Zero regressions</p>
+              <div class="gallery-dims">900 × 500 px &nbsp;·&nbsp; desktop</div>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="gallery-note">
+          ℹ️ Coloured placeholders are shown above — replace with actual screenshots once available.<br />
+          See image dimensions noted on each card for guidance.
+        </p>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════ ROADMAP ════════════════════════════ -->
+    <section class="roadmap" id="roadmap">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">Roadmap at a Glance</h2>
+          <p class="section-subtitle">Four MVPs, each building on the last.</p>
+        </div>
+
+        <div class="roadmap-track">
+
+          <div class="roadmap-item reveal">
+            <div class="roadmap-marker done">✅</div>
+            <div class="roadmap-card">
+              <div class="roadmap-header">
+                <span class="roadmap-label done">COMPLETE</span>
+                <h3>MVP 1 — Foundation</h3>
+              </div>
+              <ul class="roadmap-list">
+                <li>Prototype UI (Angular + MFE)</li>
+                <li>Auth0 SSO &amp; RBAC</li>
+                <li>REST API + 100% test coverage</li>
+                <li>Data compliance &amp; security</li>
+                <li>Dual DB (on-prem / off-prem)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="roadmap-item reveal reveal-delay-1">
+            <div class="roadmap-marker upcoming">🔵</div>
+            <div class="roadmap-card">
+              <div class="roadmap-header">
+                <span class="roadmap-label upcoming">UPCOMING</span>
+                <h3>MVP 2 — Visibility &amp; Scale</h3>
+              </div>
+              <ul class="roadmap-list">
+                <li>Analytics foundation &amp; Sales Dashboard v1</li>
+                <li>Observability stack (logs, traces, alerts)</li>
+                <li>Scalable APIs with caching (Redis)</li>
+                <li>Mobile-friendly UI &amp; PWA</li>
+                <li>CDN hosting (CloudFront / Fastly)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="roadmap-item reveal reveal-delay-2">
+            <div class="roadmap-marker planned">🟠</div>
+            <div class="roadmap-card">
+              <div class="roadmap-header">
+                <span class="roadmap-label planned">PLANNED</span>
+                <h3>MVP 3 — Intelligence</h3>
+              </div>
+              <ul class="roadmap-list">
+                <li>AI-driven incentive calculation</li>
+                <li>Anomaly detection &amp; trend forecasting</li>
+                <li>High-powered bulk &amp; reconciliation APIs</li>
+                <li>Advanced sales leaderboards</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="roadmap-item reveal reveal-delay-3">
+            <div class="roadmap-marker planned">🟠</div>
+            <div class="roadmap-card">
+              <div class="roadmap-header">
+                <span class="roadmap-label planned">PLANNED</span>
+                <h3>MVP 4 — Platform Maturity</h3>
+              </div>
+              <ul class="roadmap-list">
+                <li>Analytics Dashboard for sales executives</li>
+                <li>User management dashboard</li>
+                <li>White-labelling &amp; dark mode</li>
+                <li>General Availability (v1.0)</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════ ARCHITECTURE ════════════════════════════ -->
+    <section class="architecture" id="architecture">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">Architecture</h2>
+          <p class="section-subtitle">Micro-Frontend + Serverless — every layer independently deployable.</p>
+        </div>
+        <div class="arch-grid">
+          <div class="arch-card reveal">
+            <div class="arch-layer">Shell UI</div>
+            <p>MFE orchestration · Auth · Feature flags · Error boundary</p>
+            <div class="arch-stack">Angular · Module Federation</div>
+          </div>
+          <div class="arch-arrow" aria-hidden="true">↓</div>
+          <div class="arch-card reveal reveal-delay-1">
+            <div class="arch-layer">Micro-Frontends</div>
+            <p>Domain UIs (Rules, Dashboard, Analytics) — independently deployable</p>
+            <div class="arch-stack">Angular · TypeScript</div>
+          </div>
+          <div class="arch-arrow" aria-hidden="true">↓</div>
+          <div class="arch-card reveal reveal-delay-2">
+            <div class="arch-layer">API Layer</div>
+            <p>Thin Lambda adapters → pure service functions</p>
+            <div class="arch-stack">AWS Lambda · middy</div>
+          </div>
+          <div class="arch-arrow" aria-hidden="true">↓</div>
+          <div class="arch-card reveal reveal-delay-3">
+            <div class="arch-layer">Infrastructure as Code</div>
+            <p>Parameterised stacks per environment (dev / staging / prod)</p>
+            <div class="arch-stack">SST v3 · AWS CDK (TypeScript)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════ ABOUT US ════════════════════════════ -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-inner">
+          <div class="about-text reveal">
+            <span class="badge badge-purple">About Us</span>
+            <h2 class="section-title">Built with Strong Opinions<br />About Good Software</h2>
+            <p>
+              i17e was born from a simple frustration: managing sales incentives at scale
+              involves <strong>too many spreadsheets, too many manual steps, and too many
+              reconciliation headaches.</strong>
+            </p>
+            <p>
+              In just <strong>four months</strong> we built a fully working prototype — complete with
+              a responsive UI, a secure and tested API, Auth0 SSO, dual-database support,
+              and data compliance from day one. Not a mockup. A real, running system.
+            </p>
+            <p>
+              Our stack is deliberately modern and cloud-native: Angular Micro-Frontends
+              on the front-end, AWS Lambda serverless on the back-end, and SST + AWS CDK
+              for infrastructure. Every decision is made with <em>scale, testability, and
+              maintainability</em> in mind.
+            </p>
+            <div class="about-badges">
+              <span class="tech-badge">Angular</span>
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">AWS Lambda</span>
+              <span class="tech-badge">Auth0</span>
+              <span class="tech-badge">SST v3</span>
+              <span class="tech-badge">AWS CDK</span>
+            </div>
+          </div>
+          <div class="about-visual reveal reveal-delay-1">
+            <div class="values-grid">
+              <div class="value-card">
+                <span class="value-icon">🚀</span>
+                <h4>Ship Fast</h4>
+                <p>MVPs that prove the concept before committing to full scale.</p>
+              </div>
+              <div class="value-card">
+                <span class="value-icon">🧪</span>
+                <h4>Test Everything</h4>
+                <p>100% automated API coverage. No regressions, ever.</p>
+              </div>
+              <div class="value-card">
+                <span class="value-icon">🔐</span>
+                <h4>Secure by Default</h4>
+                <p>Auth, CORS, sanitisation, and HTTPS from commit one.</p>
+              </div>
+              <div class="value-card">
+                <span class="value-icon">📐</span>
+                <h4>Built to Scale</h4>
+                <p>Serverless, pluggable adapters, and CDN-ready from the ground up.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════ CONTACT US ════════════════════════════ -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">Get in Touch</h2>
+          <p class="section-subtitle">Interested in a demo, partnership, or just want to say hi? Drop us a message.</p>
+        </div>
+
+        <div class="contact-inner">
+
+          <div class="contact-info reveal">
+            <div class="contact-item">
+              <span class="contact-icon">🌐</span>
+              <div>
+                <strong>Live Demo</strong>
+                <a href="https://opensourcekd.github.io/i17e/" target="_blank" rel="noopener">opensourcekd.github.io/i17e</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">💻</span>
+              <div>
+                <strong>GitHub</strong>
+                <a href="https://github.com/OpensourceKD" target="_blank" rel="noopener">github.com/OpensourceKD</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📧</span>
+              <div>
+                <strong>Email</strong>
+                <span>Available via GitHub profile</span>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form reveal reveal-delay-1" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name <span class="required" aria-hidden="true">*</span></label>
+                <input type="text" id="name" name="name" placeholder="Jane Smith" autocomplete="name" required />
+                <span class="form-error" id="name-error" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address <span class="required" aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" required />
+                <span class="form-error" id="email-error" role="alert"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject <span class="required" aria-hidden="true">*</span></label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a topic…</option>
+                <option value="demo">Request a Demo</option>
+                <option value="partnership">Partnership Enquiry</option>
+                <option value="technical">Technical Question</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="form-error" id="subject-error" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="message">Message <span class="required" aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell us about your use case or question…" required></textarea>
+              <span class="form-error" id="message-error" role="alert"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-full" id="submit-btn">
+              Send Message
+            </button>
+            <div class="form-success" id="form-success" role="status" aria-live="polite"></div>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════ FOOTER ════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <a href="#home" class="logo" aria-label="i17e home">
+            <span class="logo-mark">i<span class="logo-accent">17</span>e</span>
+          </a>
+          <p class="footer-tagline">
+            Automate, govern, and optimise every sales incentive — from rule creation to executive insight.
+          </p>
+          <div class="footer-social">
+            <a href="https://github.com/OpensourceKD" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Platform</h4>
+            <ul>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#roadmap">Roadmap</a></li>
+              <li><a href="#architecture">Architecture</a></li>
+              <li><a href="https://opensourcekd.github.io/i17e/" target="_blank" rel="noopener">Live Demo</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#who">Who It's For</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+              <li><a href="https://github.com/OpensourceKD" target="_blank" rel="noopener">GitHub</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Tech Stack</h4>
+            <ul>
+              <li><span>Angular + TypeScript</span></li>
+              <li><span>AWS Lambda + middy</span></li>
+              <li><span>Auth0 SSO</span></li>
+              <li><span>SST v3 + AWS CDK</span></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="footer-year"></span> i17e. Built with ☕ and strong opinions about good software.</p>
+        <p><a href="https://opensourcekd.github.io/i17e/" target="_blank" rel="noopener">opensourcekd.github.io/i17e</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#home" class="back-to-top" id="back-to-top" aria-label="Back to top">↑</a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
