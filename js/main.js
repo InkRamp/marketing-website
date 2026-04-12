@@ -203,15 +203,15 @@
     try {
       const endpoint = form.dataset.action;
 
-      /* Warn developers if the Formspree endpoint hasn't been configured yet */
-      if (endpoint.includes('REPLACE_WITH_YOUR_FORM_ID')) {
-        console.warn('i17e: Set your Formspree form ID in index.html (data-action attribute).');
-      }
+      const payload = {};
+      Object.keys(rules).forEach(name => {
+        payload[name] = form.elements[name].value;
+      });
 
       const res = await fetch(endpoint, {
         method:  'POST',
-        body:    new FormData(form),
-        headers: { 'Accept': 'application/json' }
+        body:    JSON.stringify(payload),
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
       });
 
       if (!res.ok) throw new Error('Network response was not ok');
