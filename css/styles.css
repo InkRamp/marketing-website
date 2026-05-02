@@ -133,6 +133,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .badge-green  { background: #dcfce7; color: #166534; }
 .badge-blue   { background: var(--color-primary-light); color: var(--color-primary-dark); }
 .badge-purple { background: #f3e8ff; color: #5b21b6; }
+.badge-inline { font-size: 0.65rem; vertical-align: middle; }
 
 /* Buttons */
 .btn {
@@ -583,6 +584,10 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   font-size: 1.75rem;
   margin-bottom: var(--space-4);
 }
+.persona-icon--admin      { background: #dbeafe; }
+.persona-icon--org-admin  { background: #dcfce7; }
+.persona-icon--org-lead   { background: #fef3c7; }
+.persona-icon--sales-exec { background: #f3e8ff; }
 .persona-card h3 {
   font-size: var(--font-size-base);
   font-weight: 700;
