@@ -1016,10 +1016,28 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .contact-item span { color: var(--color-mid); }
 
 /* Form */
+/* Grid-stack: form and success panel share the same cell */
+.contact-form-area {
+  display: grid;
+  grid-template-areas: 'stack';
+}
+.contact-form-area > * { grid-area: stack; }
+
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: var(--space-5);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s 0s;
+  visibility: visible;
+}
+
+/* When the contact section is marked as sent, fade the form out */
+.contact--sent .contact-form {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s 0.35s;
 }
 .form-row {
   display: grid;
@@ -1076,25 +1094,66 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   min-height: 1rem;
 }
 
-.form-success {
+/* Success panel — stacked in the same grid cell as the form */
+.contact-success-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-5);
   text-align: center;
-  padding: var(--space-4);
-  background: #dcfce7;
-  border: 1px solid #bbf7d0;
-  border-radius: var(--radius-lg);
-  color: #166534;
-  font-weight: 600;
-  font-size: var(--font-size-sm);
-  display: none;
+  padding: var(--space-12) var(--space-8);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s 0.4s;
 }
-.form-success.visible { display: block; }
 
-/* Submit button loading state */
+/* Delay the panel entrance until the form has faded out */
+.contact--sent .contact-success-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s, visibility 0s 0.3s;
+}
+
+.success-icon {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.success-title {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.success-text {
+  font-size: var(--font-size-base);
+  color: var(--color-mid);
+  max-width: 26ch;
+}
+
+/* Submit button — CSS-driven loading state */
+#submit-btn[aria-busy="true"] .btn-text { visibility: hidden; }
+#submit-btn[aria-busy="true"]::after {
+  content: 'Sending…';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#submit-btn[aria-busy="true"]           { position: relative; }
+
 #submit-btn:disabled {
   opacity: .65;
   cursor: not-allowed;
   transform: none;
 }
+
 
 /* ── FOOTER ───────────────────────────────────────────────────── */
 .site-footer {

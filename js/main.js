@@ -105,12 +105,19 @@
   const yearEl = $('#footer-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ── Contact form validation & pseudo-submit ──────────────── */
-  const form      = $('#contact-form');
-  const submitBtn = $('#submit-btn');
-  const successEl = $('#form-success');
+  /* ── Contact form validation & submit ────────────────────────── */
+  const contactSection = $('#contact');
+  const form           = $('#contact-form');
+  const submitBtn      = $('#submit-btn');
+  const successPanel   = $('#contact-success-panel');
 
   if (!form) return;
+
+  /* Restore submitted state from sessionStorage (same browser session) */
+  if (sessionStorage.getItem('i17e_contact_sent') === '1') {
+    contactSection.classList.add('contact--sent');
+    successPanel.setAttribute('aria-hidden', 'false');
+  }
 
   const rules = {
     name: {
@@ -167,10 +174,10 @@
     });
   });
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
-    successEl.classList.remove('visible');
 
+    /* Client-side validation */
     let valid = true;
     Object.keys(rules).forEach(name => {
       const input = form.elements[name];
@@ -184,24 +191,55 @@
     });
 
     if (!valid) {
-      /* Focus first error field */
       const firstError = form.querySelector('.error');
       if (firstError) firstError.focus();
       return;
     }
 
-    /* Simulate async submit */
+    /* Submit — CSS handles the button loading label via aria-busy */
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
+    submitBtn.setAttribute('aria-busy', 'true');
 
-    setTimeout(() => {
-      form.reset();
+    try {
+      const endpoint = form.dataset.action;
+
+      const payload = {};
+      Object.keys(rules).forEach(name => {
+        payload[name] = form.elements[name].value;
+      });
+
+      const res = await fetch(endpoint, {
+        method:  'POST',
+        body:    JSON.stringify(payload),
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+      });
+
+      if (!res.ok) throw new Error('Network response was not ok');
+
+      /* Persist success across refreshes for this browser session */
+      sessionStorage.setItem('i17e_contact_sent', '1');
+
+      /* CSS transitions take over: form fades out, success panel fades in */
+      contactSection.classList.add('contact--sent');
+      successPanel.setAttribute('aria-hidden', 'false');
+      successPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    } catch (err) {
+      /* Re-enable the button so the user can retry */
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Send Message';
-      successEl.textContent = '✅ Thank you! Your message has been received. We\'ll get back to you soon.';
-      successEl.classList.add('visible');
-      successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 1200);
+      submitBtn.removeAttribute('aria-busy');
+      console.error('Form submission failed:', err);
+
+      /* Surface a simple inline error without showing the panel */
+      const existingErr = form.querySelector('.submit-error');
+      if (!existingErr) {
+        const errMsg = document.createElement('p');
+        errMsg.className = 'form-error submit-error';
+        errMsg.setAttribute('role', 'alert');
+        errMsg.textContent = 'Something went wrong — please try again or reach out via GitHub.';
+        submitBtn.insertAdjacentElement('afterend', errMsg);
+      }
+    }
   });
 
 })();
