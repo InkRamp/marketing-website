@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="i17e — Automate sales incentives for banks and NBFCs. Replace Excel with a rule-based incentive engine, real-time tracking, and automated payouts." />
-  <meta name="keywords" content="sales incentive automation, incentive management, banks, NBFCs, rule-based incentive engine, payout automation" />
-  <meta property="og:title" content="i17e · Automate Sales Incentives Beyond Excel" />
-  <meta property="og:description" content="Replace manual spreadsheets with a rule-based incentive engine, real-time tracking, and automated payouts." />
+  <meta name="description" content="InkRamp - B2B print procurement marketplace. Build status, interactive checklist, time and cost forecasts, and AI usage log." />
+  <meta property="og:title" content="InkRamp - Build Status" />
   <meta property="og:type" content="website" />
-  <title>i17e · Automate Sales Incentives Beyond Excel</title>
+  <title>InkRamp - Build Status</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,28 +14,27 @@
 </head>
 <body>
 
-  <!-- ════════════════════════════ HEADER ════════════════════════════ -->
+  <!-- ===== HEADER ===== -->
   <header class="site-header" id="site-header">
     <div class="container header-inner">
-      <a href="#home" class="logo" aria-label="i17e home">
-        <span class="logo-mark">i<span class="logo-accent">17</span>e</span>
-        <span class="logo-tagline">Incentive Platform</span>
+      <a href="#home" class="logo" aria-label="InkRamp home">
+        <span class="logo-mark">Ink<span class="logo-accent">Ramp</span></span>
+        <span class="logo-tagline">Build Status</span>
       </a>
-
       <nav class="main-nav" id="main-nav" aria-label="Primary navigation">
         <ul class="nav-list">
-          <li><a href="#home"         class="nav-link active">Home</a></li>
-          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
-          <li><a href="#features"     class="nav-link">Features</a></li>
-          <li><a href="#security"     class="nav-link">Security</a></li>
-          <li><a href="#about"        class="nav-link">About Us</a></li>
-          <li><a href="#contact"      class="nav-link">Contact Us</a></li>
+          <li><a href="#home"             class="nav-link active">Home</a></li>
+          <li><a href="#checklist"        class="nav-link">Checklist</a></li>
+          <li><a href="#time-forecast"    class="nav-link">Time</a></li>
+          <li><a href="#cost-forecast"    class="nav-link">Cost</a></li>
+          <li><a href="#success-forecast" class="nav-link">Success</a></li>
+          <li><a href="#ai-log"           class="nav-link">AI Log</a></li>
         </ul>
       </nav>
-
-      <a href="#contact" class="btn btn-primary header-cta">Get in Touch</a>
-
-      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+      <a href="https://github.com/InkRamp" target="_blank" rel="noopener"
+         class="btn btn-primary header-cta">GitHub &rarr;</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation"
+              aria-expanded="false" aria-controls="main-nav">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -45,283 +42,364 @@
 
   <main>
 
-    <!-- ════════════════════════════ HERO / HOME ════════════════════════════ -->
+    <!-- ===== HERO ===== -->
     <section class="hero" id="home">
       <div class="hero-bg-grid" aria-hidden="true"></div>
-      <div class="container hero-inner">
+      <div class="container hero-inner hero-inner--center">
         <div class="hero-content reveal">
-          <span class="badge badge-blue">For Banks &amp; NBFCs</span>
+          <span class="badge badge-blue">Pactap &middot; Head of Engineering Take-Home</span>
           <h1 class="hero-title">
-            Automate Sales Incentives<br />
-            <span class="gradient-text">Beyond Excel</span>
+            InkRamp Build<br />
+            <span class="gradient-text">Status Dashboard</span>
           </h1>
           <p class="hero-subtitle">
-            Replace manual spreadsheets with a <strong>rule-based incentive engine</strong>,
-            real-time tracking, and automated payouts — built for the compliance and scale
-            demands of financial institutions.
+            B2B marketplace for commercial print procurement. Buyers describe a print job in
+            natural language; within minutes they receive three priced, comparable quotes from
+            vetted suppliers &mdash; powered by a multi-agent AI pipeline.
           </p>
-          <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary btn-lg">Contact Us &rarr;</a>
-            <a href="#how-it-works" class="btn btn-outline btn-lg">See How It Works</a>
+          <div class="hero-progress reveal reveal-delay-1">
+            <div class="progress-header">
+              <span class="progress-label">Overall Completion</span>
+              <span class="progress-count" id="overall-count">0 / 97 items</span>
+            </div>
+            <div class="progress-track" role="progressbar"
+                 aria-valuenow="0" aria-valuemin="0" aria-valuemax="97"
+                 id="overall-bar-wrapper">
+              <div class="progress-fill" id="overall-bar" style="width:0%"></div>
+            </div>
           </div>
-          <div class="hero-stats">
+          <div class="hero-stats reveal reveal-delay-2">
             <div class="stat">
-              <span class="stat-number">0</span>
-              <span class="stat-label">PII Stored</span>
+              <span class="stat-number" id="stat-complete">0</span>
+              <span class="stat-label">Done</span>
             </div>
             <div class="stat-divider" aria-hidden="true"></div>
             <div class="stat">
-              <span class="stat-number">Auth0</span>
-              <span class="stat-label">Enterprise Security</span>
+              <span class="stat-number">7</span>
+              <span class="stat-label">Day Target</span>
             </div>
             <div class="stat-divider" aria-hidden="true"></div>
             <div class="stat">
-              <span class="stat-number">On-Prem</span>
-              <span class="stat-label">or Cloud Deploy</span>
+              <span class="stat-number">~64 h</span>
+              <span class="stat-label">AI-Assisted Est.</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat">
+              <span class="stat-number">~$120</span>
+              <span class="stat-label">Dev Cost</span>
             </div>
           </div>
+          <div class="hero-actions reveal reveal-delay-3">
+            <a href="#checklist" class="btn btn-primary btn-lg">View Checklist &rarr;</a>
+            <a href="#ai-log"    class="btn btn-outline  btn-lg">AI Usage Log</a>
+          </div>
         </div>
-        <div class="hero-visual reveal reveal-delay-1" aria-hidden="true">
-          <div class="dashboard-mock">
-            <div class="mock-bar">
-              <span class="mock-dot red"></span>
-              <span class="mock-dot yellow"></span>
-              <span class="mock-dot green"></span>
-              <span class="mock-url">i17e · Incentive Dashboard</span>
-            </div>
-            <div class="mock-body">
-              <div class="mock-sidebar">
-                <div class="mock-nav-item active"></div>
-                <div class="mock-nav-item"></div>
-                <div class="mock-nav-item"></div>
-                <div class="mock-nav-item"></div>
+      </div>
+    </section>
+
+
+    <!-- ===== CHECKLIST ===== -->
+    <section class="checklist-section" id="checklist">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="badge badge-blue">13 Areas &middot; 97 Items</span>
+          <h2 class="section-title">Build Checklist</h2>
+          <p class="section-subtitle">
+            Tick items as they complete. State is saved in your browser.
+            Each category shows live progress.
+          </p>
+        </div>
+        <div class="checklist-grid">
+
+          <!-- 2.1 Infrastructure -->
+          <div class="checklist-category reveal" data-cat="infra">
+            <div class="cat-header">
+              <div class="cat-icon">&#x1F3D7;&#xFE0F;</div>
+              <div class="cat-title-group">
+                <h3 class="cat-title">Infrastructure &amp; DevOps</h3>
+                <span class="cat-module">IaC &middot; AWS &middot; CI</span>
               </div>
-              <div class="mock-content">
-                <div class="mock-row">
-                  <div class="mock-card card-blue"></div>
-                  <div class="mock-card card-green"></div>
-                  <div class="mock-card card-orange"></div>
-                </div>
-                <div class="mock-chart"></div>
-                <div class="mock-table">
-                  <div class="mock-row-line"></div>
-                  <div class="mock-row-line short"></div>
-                  <div class="mock-row-line"></div>
-                  <div class="mock-row-line short"></div>
-                </div>
-              </div>
+              <span class="cat-progress" data-cat-progress="infra">0 / 9</span>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="hero-scroll-hint">
-        <span>Scroll to explore</span>
-        <div class="scroll-arrow" aria-hidden="true"></div>
-      </div>
-    </section>
-
-    <!-- ════════════════════════════ PROBLEM ════════════════════════════ -->
-    <section class="problem" id="problem">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="badge badge-blue">The Problem</span>
-          <h2 class="section-title">Excel Was Never Built for This</h2>
-          <p class="section-subtitle">Managing sales incentives across large field teams in banks and NBFCs breaks down fast when the system is a spreadsheet.</p>
-        </div>
-        <div class="problem-grid">
-          <div class="problem-card reveal">
-            <div class="problem-icon">⚠️</div>
-            <h3>Calculation Errors</h3>
-            <p>Manual formula management across hundreds of rows leads to miscalculations, disputed payouts, and eroded trust among your sales teams.</p>
-          </div>
-          <div class="problem-card reveal reveal-delay-1">
-            <div class="problem-icon">🐌</div>
-            <h3>Processing Delays</h3>
-            <p>Month-end incentive runs take days. Finance, HR, and sales ops are locked in reconciliation cycles that delay payouts and demotivate staff.</p>
-          </div>
-          <div class="problem-card reveal reveal-delay-2">
-            <div class="problem-icon">🔒</div>
-            <h3>No Transparency</h3>
-            <p>Sales executives have no visibility into how their incentives are calculated. Lack of clarity generates support requests and disputes.</p>
-          </div>
-          <div class="problem-card reveal reveal-delay-3">
-            <div class="problem-icon">📉</div>
-            <h3>Doesn't Scale</h3>
-            <p>As your team grows from 50 to 5,000 reps across branches, a spreadsheet-based process collapses under the complexity and data volume.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ════════════════════════════ SOLUTION ════════════════════════════ -->
-    <section class="solution" id="solution">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="badge badge-green">The Solution</span>
-          <h2 class="section-title">A System Built for Scale</h2>
-          <p class="section-subtitle">i17e replaces your spreadsheet workflow with a purpose-built engine — configurable, auditable, and fast.</p>
-        </div>
-        <div class="solution-grid">
-          <div class="solution-card reveal">
-            <div class="solution-num">01</div>
-            <h3>Configurable Rule Engine</h3>
-            <p>Define incentive rules by role, product, region, or performance tier — without code. Update rules in minutes, not days.</p>
-          </div>
-          <div class="solution-card reveal reveal-delay-1">
-            <div class="solution-num">02</div>
-            <h3>Real-Time Tracking</h3>
-            <p>Sales performance data flows through the system continuously. Every rep, lead, and manager sees live progress — no waiting for month-end.</p>
-          </div>
-          <div class="solution-card reveal reveal-delay-2">
-            <div class="solution-num">03</div>
-            <h3>Payout Enablement</h3>
-            <p>Automated calculations feed directly into your payroll or payment workflows. Reduce processing time from days to minutes.</p>
-          </div>
-          <div class="solution-card reveal reveal-delay-3">
-            <div class="solution-num">04</div>
-            <h3>Audit-Ready System</h3>
-            <p>Every rule change, calculation, and payout is logged with a full audit trail — ready for internal review, compliance checks, or regulatory queries.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ════════════════════════════ ROLES ════════════════════════════ -->
-    <section class="personas" id="roles">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="badge badge-purple">User Roles</span>
-          <h2 class="section-title">Built for Every Stakeholder</h2>
-          <p class="section-subtitle">One platform. Four distinct roles. Everyone gets exactly what they need.</p>
-        </div>
-        <div class="personas-grid">
-          <div class="persona-card reveal">
-            <div class="persona-icon persona-icon--admin">🛡️</div>
-            <h3>Super Admin</h3>
-            <p>Platform-level control. Manage organisations, configure global settings, and oversee system health across all tenants.</p>
-          </div>
-          <div class="persona-card reveal reveal-delay-1">
-            <div class="persona-icon persona-icon--org-admin">⚙️</div>
-            <h3>Org Admin</h3>
-            <p>Set up your organisation, onboard users, assign roles, and manage access policies — without involving the platform team.</p>
-          </div>
-          <div class="persona-card reveal reveal-delay-2">
-            <div class="persona-icon persona-icon--org-lead">📋</div>
-            <h3>Org Lead</h3>
-            <p>Define and update incentive rules, monitor team performance in real time, and review payout readiness before submission.</p>
-          </div>
-          <div class="persona-card reveal reveal-delay-3">
-            <div class="persona-icon persona-icon--sales-exec">💰</div>
-            <h3>Sales Executive</h3>
-            <p>View your earned incentives, track progress against targets, and see payout status — clearly, without having to ask anyone.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ════════════════════════════ HOW IT WORKS ════════════════════════════ -->
-    <section class="how-it-works" id="how-it-works">
-      <div class="container">
-        <div class="section-header reveal">
-          <h2 class="section-title">How It Works</h2>
-          <p class="section-subtitle">Four steps from configuration to payout — with no manual intervention required.</p>
-        </div>
-        <div class="steps-grid">
-          <div class="step-card reveal">
-            <div class="step-number">1</div>
-            <div class="step-content">
-              <h3>Define Rules</h3>
-              <p>Admins and leads configure incentive rules by product, geography, or performance band. Rules go live instantly with full version history.</p>
-            </div>
-          </div>
-          <div class="step-connector" aria-hidden="true"></div>
-          <div class="step-card reveal reveal-delay-1">
-            <div class="step-number">2</div>
-            <div class="step-content">
-              <h3>Track Sales</h3>
-              <p>Sales activity is captured and mapped against active rules in real time. Every rep's progress is visible on their personalised dashboard.</p>
-            </div>
-          </div>
-          <div class="step-connector" aria-hidden="true"></div>
-          <div class="step-card reveal reveal-delay-2">
-            <div class="step-number">3</div>
-            <div class="step-content">
-              <h3>Auto-Calculate</h3>
-              <p>The incentive engine calculates payouts automatically based on your rules. No formulas to maintain. No manual reconciliation.</p>
-            </div>
-          </div>
-          <div class="step-connector" aria-hidden="true"></div>
-          <div class="step-card reveal reveal-delay-3">
-            <div class="step-number">4</div>
-            <div class="step-content">
-              <h3>Enable Payouts</h3>
-              <p>Verified results are exported or pushed to your payroll system. The audit trail captures every step — ready for sign-off and compliance review.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ════════════════════════════ FEATURES ════════════════════════════ -->
-    <section class="features" id="features">
-      <div class="container">
-        <div class="section-header reveal">
-          <h2 class="section-title">Platform Capabilities</h2>
-          <p class="section-subtitle">Everything needed to run incentive programmes at enterprise scale, with the security and compliance controls banks require.</p>
-        </div>
-        <div class="features-grid">
-
-          <div class="feature-card reveal">
-            <div class="feature-icon">⚙️</div>
-            <h3 class="feature-title">Rule Engine</h3>
-            <p class="feature-desc">Configurable, no-code rule builder for defining incentive logic by role, product, region, or performance tier. Rules are versioned and effective-date controlled.</p>
-            <ul class="feature-tags">
-              <li>No-Code Config</li><li>Versioned</li><li>Multi-Tier</li>
+            <div class="cat-bar-track"><div class="cat-bar-fill" data-cat-bar="infra" style="width:0%"></div></div>
+            <ul class="check-list">
+              <li><label class="check-item"><input type="checkbox" data-key="infra-0" /><span>IaC: RDS (PostgreSQL + pgvector) stack</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="infra-1" /><span>IaC: Lambda + API Gateway stack</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="infra-2" /><span>IaC: CloudFront + S3 for Shell/MFE hosting</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="infra-3" /><span>IaC: CloudFront + S3 for static site</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="infra-4" /><span>IaC: Secrets Manager integration (no .env in repo)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="infra-5" /><span>IaC: Route53 / custom domain</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="infra-6" /><span>IaC: dev / staging / prod parameterisation</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="infra-7" /><span>One-command local setup (<code>make dev</code> or <code>docker compose up</code>)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="infra-8" /><span>Clean commit history across all repos</span></label></li>
             </ul>
           </div>
 
-          <div class="feature-card reveal reveal-delay-1">
-            <div class="feature-icon">📊</div>
-            <h3 class="feature-title">Real-Time Dashboards</h3>
-            <p class="feature-desc">Live performance views for every role — from individual sales reps tracking their earnings to org leads monitoring team-wide payout readiness.</p>
-            <ul class="feature-tags">
-              <li>Live Data</li><li>Role-Based Views</li><li>Drill-Down</li>
+          <!-- 2.2 Auth -->
+          <div class="checklist-category reveal reveal-delay-1" data-cat="auth">
+            <div class="cat-header">
+              <div class="cat-icon">&#x1F510;</div>
+              <div class="cat-title-group">
+                <h3 class="cat-title">Auth &amp; Identity</h3>
+                <span class="cat-module">identity module &middot; Shell</span>
+              </div>
+              <span class="cat-progress" data-cat-progress="auth">0 / 7</span>
+            </div>
+            <div class="cat-bar-track"><div class="cat-bar-fill" data-cat-bar="auth" style="width:0%"></div></div>
+            <ul class="check-list">
+              <li><label class="check-item"><input type="checkbox" data-key="auth-0" /><span>Buyer registration &amp; login</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="auth-1" /><span>Supplier registration &amp; login</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="auth-2" /><span>Admin login</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="auth-3" /><span>JWT / session management</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="auth-4" /><span>Password reset flow</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="auth-5" /><span>RBAC enforced on every backend endpoint</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="auth-6" /><span>CSRF / CORS configured</span></label></li>
             </ul>
           </div>
 
-          <div class="feature-card reveal reveal-delay-2">
-            <div class="feature-icon">🤖</div>
-            <h3 class="feature-title">AI Analytics <span class="badge badge-purple badge-inline">Coming Soon</span></h3>
-            <p class="feature-desc">AI-driven incentive insights, anomaly detection, and trend forecasting to help leadership make data-backed decisions on incentive programmes.</p>
-            <ul class="feature-tags">
-              <li>Anomaly Detection</li><li>Forecasting</li><li>Insights</li>
+          <!-- 2.3 Catalogue -->
+          <div class="checklist-category reveal" data-cat="catalog">
+            <div class="cat-header">
+              <div class="cat-icon">&#x1F3ED;</div>
+              <div class="cat-title-group">
+                <h3 class="cat-title">Supplier Catalogue</h3>
+                <span class="cat-module">catalog module &middot; mfe-admin</span>
+              </div>
+              <span class="cat-progress" data-cat-progress="catalog">0 / 6</span>
+            </div>
+            <div class="cat-bar-track"><div class="cat-bar-fill" data-cat-bar="catalog" style="width:0%"></div></div>
+            <ul class="check-list">
+              <li><label class="check-item"><input type="checkbox" data-key="catalog-0" /><span>50+ synthetic supplier listings seeded</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="catalog-1" /><span>Supplier schema: capabilities, machinery, lead times, paper inventory, regions, certifications</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="catalog-2" /><span>Vector embeddings generated for supplier listings</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="catalog-3" /><span>pgvector integration</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="catalog-4" /><span>Hybrid retrieval (keyword + vector) search endpoint</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="catalog-5" /><span>Supplier catalogue management UI in admin MFE</span></label></li>
             </ul>
           </div>
 
-          <div class="feature-card reveal">
-            <div class="feature-icon">🔐</div>
-            <h3 class="feature-title">Auth0 Security</h3>
-            <p class="feature-desc">Enterprise SSO with role-based access control, silent token refresh, and multi-tenant isolation. Every user sees only what they are authorised to see.</p>
-            <ul class="feature-tags">
-              <li>SSO</li><li>RBAC</li><li>Multi-Tenant</li>
+          <!-- 2.4 Intake Agent -->
+          <div class="checklist-category reveal reveal-delay-1" data-cat="intake">
+            <div class="cat-header">
+              <div class="cat-icon">&#x1F4AC;</div>
+              <div class="cat-title-group">
+                <h3 class="cat-title">Conversational Intake Agent</h3>
+                <span class="cat-module">ai-platform &middot; mfe-buyer</span>
+              </div>
+              <span class="cat-progress" data-cat-progress="intake">0 / 8</span>
+            </div>
+            <div class="cat-bar-track"><div class="cat-bar-fill" data-cat-bar="intake" style="width:0%"></div></div>
+            <ul class="check-list">
+              <li><label class="check-item"><input type="checkbox" data-key="intake-0" /><span>Chat UI in buyer MFE</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="intake-1" /><span>Agent extracts structured RFQ from free-form text</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="intake-2" /><span>Clarifying question loop (missing / ambiguous fields)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="intake-3" /><span>Agent never invents fields</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="intake-4" /><span>Output validated against RFQ schema</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="intake-5" /><span>Prompt-injection defence on user input</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="intake-6" /><span>PII redaction before LLM call</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="intake-7" /><span>Structured agent run log (input, model, prompt version, tools, tokens, cost, latency, output)</span></label></li>
             </ul>
           </div>
 
-          <div class="feature-card reveal reveal-delay-1">
-            <div class="feature-icon">🗄️</div>
-            <h3 class="feature-title">MongoDB — On-Prem or Cloud</h3>
-            <p class="feature-desc">Pluggable data layer supports both on-premises deployments and cloud-managed instances — with zero application code changes required.</p>
-            <ul class="feature-tags">
-              <li>On-Prem</li><li>Cloud</li><li>Pluggable</li>
+          <!-- 2.5 Vision -->
+          <div class="checklist-category reveal" data-cat="vision">
+            <div class="cat-header">
+              <div class="cat-icon">&#x1F441;&#xFE0F;</div>
+              <div class="cat-title-group">
+                <h3 class="cat-title">Vision / Multimodal Agent</h3>
+                <span class="cat-module">ai-platform &middot; mfe-buyer</span>
+              </div>
+              <span class="cat-progress" data-cat-progress="vision">0 / 5</span>
+            </div>
+            <div class="cat-bar-track"><div class="cat-bar-fill" data-cat-bar="vision" style="width:0%"></div></div>
+            <ul class="check-list">
+              <li><label class="check-item"><input type="checkbox" data-key="vision-0" /><span>Image upload UI in buyer MFE</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="vision-1" /><span>Agent extracts spec from image (dimensions, fold, paper weight, colour, finish)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="vision-2" /><span>Output reconciles with typed RFQ (conflicts surfaced, not silently overridden)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="vision-3" /><span>At least 3 example image uploads seeded</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="vision-4" /><span>Structured agent run log</span></label></li>
             </ul>
           </div>
 
-          <div class="feature-card reveal reveal-delay-2">
-            <div class="feature-icon">🛡️</div>
-            <h3 class="feature-title">No PII Stored</h3>
-            <p class="feature-desc">The platform is designed to process incentive calculations without retaining personally identifiable information — reducing your data liability from day one.</p>
-            <ul class="feature-tags">
-              <li>Privacy-Safe</li><li>Minimal Data</li><li>Compliant</li>
+          <!-- 2.6 RFQ Pipeline -->
+          <div class="checklist-category reveal reveal-delay-1" data-cat="rfq">
+            <div class="cat-header">
+              <div class="cat-icon">&#x1F4CB;</div>
+              <div class="cat-title-group">
+                <h3 class="cat-title">RFQ Pipeline</h3>
+                <span class="cat-module">rfq module</span>
+              </div>
+              <span class="cat-progress" data-cat-progress="rfq">0 / 5</span>
+            </div>
+            <div class="cat-bar-track"><div class="cat-bar-fill" data-cat-bar="rfq" style="width:0%"></div></div>
+            <ul class="check-list">
+              <li><label class="check-item"><input type="checkbox" data-key="rfq-0" /><span>RFQ creation from intake agent output</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="rfq-1" /><span>RFQ status tracking (draft to sent to quoted to accepted to PO issued)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="rfq-2" /><span>10+ sample RFQs seeded in various states</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="rfq-3" /><span>Buyer RFQ list &amp; detail view in buyer MFE</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="rfq-4" /><span>Supplier RFQ inbox in supplier MFE</span></label></li>
+            </ul>
+          </div>
+
+          <!-- 2.7 Orchestration -->
+          <div class="checklist-category reveal" data-cat="orch">
+            <div class="cat-header">
+              <div class="cat-icon">&#x1F916;</div>
+              <div class="cat-title-group">
+                <h3 class="cat-title">Orchestration Agent</h3>
+                <span class="cat-module">ai-platform &middot; quoting modules</span>
+              </div>
+              <span class="cat-progress" data-cat-progress="orch">0 / 7</span>
+            </div>
+            <div class="cat-bar-track"><div class="cat-bar-fill" data-cat-bar="orch" style="width:0%"></div></div>
+            <ul class="check-list">
+              <li><label class="check-item"><input type="checkbox" data-key="orch-0" /><span>Match RFQ to top-K suppliers via search layer</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="orch-1" /><span>Generate normalised RFQ payload per supplier</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="orch-2" /><span>Accept supplier quote responses (free-text, JSON, scanned-PDF-like text)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="orch-3" /><span>Normalise quotes into comparable buyer-facing view (unit price, total, lead time, finishes, exclusions)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="orch-4" /><span>Surface anomalies (missing finish, different units)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="orch-5" /><span>Malformed supplier response handling</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="orch-6" /><span>Structured agent run log</span></label></li>
+            </ul>
+          </div>
+
+          <!-- 2.8 Document AI -->
+          <div class="checklist-category reveal reveal-delay-1" data-cat="docs-ai">
+            <div class="cat-header">
+              <div class="cat-icon">&#x1F4C4;</div>
+              <div class="cat-title-group">
+                <h3 class="cat-title">Document AI</h3>
+                <span class="cat-module">documents module</span>
+              </div>
+              <span class="cat-progress" data-cat-progress="docs-ai">0 / 5</span>
+            </div>
+            <div class="cat-bar-track"><div class="cat-bar-fill" data-cat-bar="docs-ai" style="width:0%"></div></div>
+            <ul class="check-list">
+              <li><label class="check-item"><input type="checkbox" data-key="docs-ai-0" /><span>Purchase Order PDF (on buyer accepts quote)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="docs-ai-1" /><span>Invoice PDF stub (supplier side)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="docs-ai-2" /><span>Quote Comparison PDF (buyer downloadable)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="docs-ai-3" /><span>PDFs generated programmatically (not screenshot-rendered)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="docs-ai-4" /><span>PDFs look product-quality</span></label></li>
+            </ul>
+          </div>
+
+          <!-- 2.9 Analytics -->
+          <div class="checklist-category reveal" data-cat="analytics">
+            <div class="cat-header">
+              <div class="cat-icon">&#x1F4CA;</div>
+              <div class="cat-title-group">
+                <h3 class="cat-title">Admin Analytics</h3>
+                <span class="cat-module">analytics module &middot; mfe-admin</span>
+              </div>
+              <span class="cat-progress" data-cat-progress="analytics">0 / 7</span>
+            </div>
+            <div class="cat-bar-track"><div class="cat-bar-fill" data-cat-bar="analytics" style="width:0%"></div></div>
+            <ul class="check-list">
+              <li><label class="check-item"><input type="checkbox" data-key="analytics-0" /><span>RFQs created metric</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="analytics-1" /><span>Quote turnaround time metric</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="analytics-2" /><span>Conversion rate metric</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="analytics-3" /><span>Supplier response rate metric</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="analytics-4" /><span>Agent cost per RFQ metric</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="analytics-5" /><span>AI-generated insight widget (real LLM call over real synthetic data)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="analytics-6" /><span>Agent observability / logs viewer</span></label></li>
+            </ul>
+          </div>
+
+          <!-- 2.10 Guardrails -->
+          <div class="checklist-category reveal reveal-delay-1" data-cat="security">
+            <div class="cat-header">
+              <div class="cat-icon">&#x1F6E1;&#xFE0F;</div>
+              <div class="cat-title-group">
+                <h3 class="cat-title">AI Guardrails &amp; Security</h3>
+                <span class="cat-module">All modules</span>
+              </div>
+              <span class="cat-progress" data-cat-progress="security">0 / 8</span>
+            </div>
+            <div class="cat-bar-track"><div class="cat-bar-fill" data-cat-bar="security" style="width:0%"></div></div>
+            <ul class="check-list">
+              <li><label class="check-item"><input type="checkbox" data-key="security-0" /><span>Prompt-injection defence on all user-supplied text fed to agents</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="security-1" /><span>Output validation against schemas for all agent outputs</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="security-2" /><span>Eval logging for every agent run</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="security-3" /><span>Rate limiting on AI endpoints</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="security-4" /><span>PII redaction before LLM calls</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="security-5" /><span>Secrets in Secrets Manager (not .env)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="security-6" /><span>Input validation on all endpoints</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="security-7" /><span>No raw SQL with string concatenation</span></label></li>
+            </ul>
+          </div>
+
+          <!-- 2.11 Testing -->
+          <div class="checklist-category reveal" data-cat="testing">
+            <div class="cat-header">
+              <div class="cat-icon">&#x1F9EA;</div>
+              <div class="cat-title-group">
+                <h3 class="cat-title">Testing</h3>
+                <span class="cat-module">All repos</span>
+              </div>
+              <span class="cat-progress" data-cat-progress="testing">0 / 4</span>
+            </div>
+            <div class="cat-bar-track"><div class="cat-bar-fill" data-cat-bar="testing" style="width:0%"></div></div>
+            <ul class="check-list">
+              <li><label class="check-item"><input type="checkbox" data-key="testing-0" /><span>RFQ creation critical path tests</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="testing-1" /><span>Quote normalisation unit tests</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="testing-2" /><span>Role-gated endpoint tests</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="testing-3" /><span>Agent output schema validation tests</span></label></li>
+            </ul>
+          </div>
+
+          <!-- 2.12 Documentation -->
+          <div class="checklist-category reveal reveal-delay-1" data-cat="documentation">
+            <div class="cat-header">
+              <div class="cat-icon">&#x1F4DA;</div>
+              <div class="cat-title-group">
+                <h3 class="cat-title">Documentation</h3>
+                <span class="cat-module">/docs directory</span>
+              </div>
+              <span class="cat-progress" data-cat-progress="documentation">0 / 14</span>
+            </div>
+            <div class="cat-bar-track"><div class="cat-bar-fill" data-cat-bar="documentation" style="width:0%"></div></div>
+            <ul class="check-list">
+              <li><label class="check-item"><input type="checkbox" data-key="documentation-0"  /><span>Product Brief (1 page: problem, user, bet, cuts)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="documentation-1"  /><span>HLD (architecture, module boundaries, data flow, deploy topology)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="documentation-2"  /><span>LLD (DB schema, API contracts, agent state machines, error/retry semantics)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="documentation-3"  /><span>AI System Card: Intake Agent</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="documentation-4"  /><span>AI System Card: Vision Agent</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="documentation-5"  /><span>AI System Card: Search / Retrieval</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="documentation-6"  /><span>AI System Card: Orchestration Agent</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="documentation-7"  /><span>AI System Card: Analytics Insight Widget</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="documentation-8"  /><span>Modular Monolith Rationale</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="documentation-9"  /><span>Security &amp; Guardrails doc</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="documentation-10" /><span>What Breaks at 100x doc</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="documentation-11" /><span>Cost Estimate at 1,000 active buyers/month</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="documentation-12" /><span>Engineering Playbook (1 page, Day 1 hire guide)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="documentation-13" /><span>AI Usage Log (<code>/docs/AI_USAGE.md</code>)</span></label></li>
+            </ul>
+          </div>
+
+          <!-- 2.13 Deliverables -->
+          <div class="checklist-category reveal" data-cat="deliverables">
+            <div class="cat-header">
+              <div class="cat-icon">&#x1F680;</div>
+              <div class="cat-title-group">
+                <h3 class="cat-title">Final Deliverables</h3>
+                <span class="cat-module">Submission</span>
+              </div>
+              <span class="cat-progress" data-cat-progress="deliverables">0 / 12</span>
+            </div>
+            <div class="cat-bar-track"><div class="cat-bar-fill" data-cat-bar="deliverables" style="width:0%"></div></div>
+            <ul class="check-list">
+              <li><label class="check-item"><input type="checkbox" data-key="deliverables-0"  /><span>Live deployed application (public AWS URL)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="deliverables-1"  /><span>Three test accounts: buyer@inkramp.test &middot; supplier@inkramp.test &middot; admin@inkramp.test</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="deliverables-2"  /><span>Seed data loaded (50+ suppliers, 10+ RFQs, 3+ image uploads)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="deliverables-3"  /><span>Public GitHub repos with clean commit history</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="deliverables-4"  /><span>README with one-command setup + test credentials</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="deliverables-5"  /><span>Walkthrough video (10&ndash;15 min) hosted on Loom / YouTube</span></label></li>
+              <li><label class="check-item check-item--indent"><input type="checkbox" data-key="deliverables-6"  /><span>Buyer journey demo (3&ndash;4 min)</span></label></li>
+              <li><label class="check-item check-item--indent"><input type="checkbox" data-key="deliverables-7"  /><span>Architecture walkthrough (2&ndash;3 min)</span></label></li>
+              <li><label class="check-item check-item--indent"><input type="checkbox" data-key="deliverables-8"  /><span>Deep dive on one agent (3&ndash;4 min)</span></label></li>
+              <li><label class="check-item check-item--indent"><input type="checkbox" data-key="deliverables-9"  /><span>Live AI workflow demo &mdash; real, unedited (2 min)</span></label></li>
+              <li><label class="check-item check-item--indent"><input type="checkbox" data-key="deliverables-10" /><span>What you cut and why (1 min)</span></label></li>
+              <li><label class="check-item"><input type="checkbox" data-key="deliverables-11" /><span>Static site live with this checklist + AI usage log</span></label></li>
             </ul>
           </div>
 
@@ -329,216 +407,71 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════ GALLERY (Product Snapshots) ════════════════════════════ -->
-    <section class="gallery" id="gallery">
+
+    <!-- ===== TIME FORECAST ===== -->
+    <section class="forecast-section" id="time-forecast">
       <div class="container">
         <div class="section-header reveal">
-          <h2 class="section-title">Product Snapshots</h2>
-          <p class="section-subtitle">A glimpse into the i17e interface across key workflows.</p>
+          <span class="badge badge-green">Assignment target: 60&ndash;72 h over 7 days</span>
+          <h2 class="section-title">Time Forecast</h2>
+          <p class="section-subtitle">
+            AI-assisted times assume heavy Copilot / Claude Code use for boilerplate, schema
+            generation, test scaffolding, and seed data &mdash; while architectural decisions,
+            prompt design, and evals are done by hand.
+          </p>
         </div>
+        <div class="forecast-grid reveal">
 
-        <div class="gallery-grid">
-
-          <!-- Card 1 — Incentive Rules Dashboard -->
-          <div class="gallery-card reveal">
-            <div class="gallery-thumb" style="background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 60%, #3b82f6 100%);">
-              <!-- Placeholder: replace with a 900×500 screenshot at ≥1x, 1800×1000 at 2x -->
-              <!-- On mobile: 100% width; on tablet: 50%; on desktop: 33% -->
-              <picture>
-                <!-- Hi-DPI desktop: 900w -->
-                <source media="(min-width: 1024px)" srcset="images/snapshot-rules-900.webp 1x, images/snapshot-rules-1800.webp 2x" />
-                <!-- Tablet: 600w -->
-                <source media="(min-width: 640px)" srcset="images/snapshot-rules-600.webp 1x, images/snapshot-rules-1200.webp 2x" />
-                <!-- Mobile fallback: 400w -->
-                <img src="images/snapshot-rules-400.webp" alt="Incentive Rules Dashboard — CRUD operations and rule builder" loading="lazy" width="900" height="500" class="gallery-img" />
-              </picture>
-              <div class="gallery-overlay">
-                <span class="gallery-label">📋 Rules Dashboard</span>
-              </div>
-            </div>
-            <div class="gallery-info">
-              <h3>Incentive Rule Management</h3>
-              <p>CRUD operations · Rule builder · Effective-date controls · Audit trail</p>
-              <div class="gallery-dims">900 × 500 px &nbsp;·&nbsp; desktop</div>
-            </div>
-          </div>
-
-          <!-- Card 2 — Sales Dashboard -->
-          <div class="gallery-card reveal reveal-delay-1">
-            <div class="gallery-thumb" style="background: linear-gradient(135deg, #064e3b 0%, #059669 60%, #34d399 100%);">
-              <picture>
-                <source media="(min-width: 1024px)" srcset="images/snapshot-sales-900.webp 1x, images/snapshot-sales-1800.webp 2x" />
-                <source media="(min-width: 640px)" srcset="images/snapshot-sales-600.webp 1x, images/snapshot-sales-1200.webp 2x" />
-                <img src="images/snapshot-sales-400.webp" alt="Sales Dashboard — quota attainment and incentive earned" loading="lazy" width="900" height="500" class="gallery-img" />
-              </picture>
-              <div class="gallery-overlay">
-                <span class="gallery-label">💹 Sales Dashboard</span>
-              </div>
-            </div>
-            <div class="gallery-info">
-              <h3>Sales Dashboard</h3>
-              <p>Quota attainment · Incentive earned · Deal pipeline · Period comparison</p>
-              <div class="gallery-dims">900 × 500 px &nbsp;·&nbsp; desktop</div>
+          <div class="forecast-card">
+            <h3 class="forecast-card-title">Per-Area Breakdown</h3>
+            <div class="table-wrap">
+              <table class="forecast-table">
+                <thead>
+                  <tr><th>Area</th><th>Solo</th><th>AI-Assisted</th><th>Key note</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Infrastructure &amp; DevOps</td><td>12 h</td><td class="col-highlight">5&ndash;7 h</td><td>CDK boilerplate writes itself; domain wiring needs care</td></tr>
+                  <tr><td>Auth &amp; Identity</td><td>8 h</td><td class="col-highlight">3&ndash;4 h</td><td>JWT + RBAC well-trodden; SES setup adds time</td></tr>
+                  <tr><td>Supplier Catalogue + Seeds</td><td>8 h</td><td class="col-highlight">3&ndash;4 h</td><td>AI generates 50 listings in minutes; pgvector needs review</td></tr>
+                  <tr><td>Conversational Intake Agent</td><td>10 h</td><td class="col-highlight">5&ndash;6 h</td><td>Prompt + clarifying loop + PII + eval logging = human-owned</td></tr>
+                  <tr><td>Vision / Multimodal Agent</td><td>6 h</td><td class="col-highlight">3&ndash;4 h</td><td>GPT-4o does the heavy lift; reconciliation logic needs care</td></tr>
+                  <tr><td>RFQ Pipeline</td><td>8 h</td><td class="col-highlight">3&ndash;4 h</td><td>CRUD + status machine; straightforward with scaffolding</td></tr>
+                  <tr><td>Orchestration Agent</td><td>12 h</td><td class="col-highlight">6&ndash;8 h</td><td>Hardest piece; malformed input + anomaly detection</td></tr>
+                  <tr><td>Document AI (PDFs)</td><td>6 h</td><td class="col-highlight">2&ndash;3 h</td><td>PDFKit + template fast; product quality takes iteration</td></tr>
+                  <tr><td>Admin Analytics Dashboard</td><td>8 h</td><td class="col-highlight">3&ndash;4 h</td><td>LLM insight widget + observability logs page</td></tr>
+                  <tr><td>AI Guardrails &amp; Security</td><td>6 h</td><td class="col-highlight">2&ndash;3 h</td><td>Rate limiting + schema validation; well-documented patterns</td></tr>
+                  <tr><td>Testing</td><td>8 h</td><td class="col-highlight">3&ndash;4 h</td><td>AI-generated tests are fine if you have actually read them</td></tr>
+                  <tr><td>Documentation (/docs)</td><td>12 h</td><td class="col-highlight">5&ndash;6 h</td><td>AI drafts; human edits. AI System Cards take longest</td></tr>
+                  <tr><td>Video + Deployment polish</td><td>5 h</td><td class="col-highlight">4&ndash;5 h</td><td>Recording, editing, final deploy smoke test</td></tr>
+                  <tr class="tbl-total"><td><strong>Total</strong></td><td><strong>~109 h</strong></td><td class="col-highlight"><strong>~52&ndash;63 h</strong></td><td><strong>Target 60&ndash;72 h &#x2713;</strong></td></tr>
+                </tbody>
+              </table>
             </div>
           </div>
 
-          <!-- Card 3 — Analytics Dashboard -->
-          <div class="gallery-card reveal reveal-delay-2">
-            <div class="gallery-thumb" style="background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 60%, #a78bfa 100%);">
-              <picture>
-                <source media="(min-width: 1024px)" srcset="images/snapshot-analytics-900.webp 1x, images/snapshot-analytics-1800.webp 2x" />
-                <source media="(min-width: 640px)" srcset="images/snapshot-analytics-600.webp 1x, images/snapshot-analytics-1200.webp 2x" />
-                <img src="images/snapshot-analytics-400.webp" alt="Analytics Dashboard — executive level insights" loading="lazy" width="900" height="500" class="gallery-img" />
-              </picture>
-              <div class="gallery-overlay">
-                <span class="gallery-label">📈 Analytics</span>
-              </div>
+          <div class="forecast-card">
+            <h3 class="forecast-card-title">Recommended 7-Day Cadence</h3>
+            <div class="table-wrap">
+              <table class="forecast-table">
+                <thead><tr><th>Day</th><th>Focus</th><th>Target</th></tr></thead>
+                <tbody>
+                  <tr><td>Day 1</td><td>Repo setup, IaC skeleton, Auth &amp; Identity</td><td>10 h</td></tr>
+                  <tr><td>Day 2</td><td>Supplier catalogue, seed data, pgvector, hybrid search</td><td>9 h</td></tr>
+                  <tr><td>Day 3</td><td>Intake agent + Vision agent (full prompt + evals)</td><td>10 h</td></tr>
+                  <tr><td>Day 4</td><td>RFQ pipeline + Orchestration agent (core path)</td><td>10 h</td></tr>
+                  <tr><td>Day 5</td><td>Document AI + Admin analytics + AI insight widget</td><td>9 h</td></tr>
+                  <tr><td>Day 6</td><td>Guardrails, security, testing, deploy to AWS</td><td>8 h</td></tr>
+                  <tr><td>Day 7</td><td>All documentation, AI Usage Log, video, final QA</td><td>8 h</td></tr>
+                  <tr class="tbl-total"><td colspan="2"><strong>Total</strong></td><td><strong>~64 h</strong></td></tr>
+                </tbody>
+              </table>
             </div>
-            <div class="gallery-info">
-              <h3>Analytics Dashboard</h3>
-              <p>Team performance · Incentive ROI · Cohort trends · Executive summary</p>
-              <div class="gallery-dims">900 × 500 px &nbsp;·&nbsp; desktop</div>
-            </div>
-          </div>
-
-          <!-- Card 4 — Mobile View -->
-          <div class="gallery-card reveal">
-            <div class="gallery-thumb gallery-thumb--tall" style="background: linear-gradient(160deg, #0c4a6e 0%, #0284c7 60%, #38bdf8 100%);">
-              <picture>
-                <!-- Mobile screenshot: 390×844 (iPhone 14) -->
-                <source media="(min-width: 640px)" srcset="images/snapshot-mobile-390.webp 1x, images/snapshot-mobile-780.webp 2x" />
-                <img src="images/snapshot-mobile-390.webp" alt="i17e mobile responsive view" loading="lazy" width="390" height="844" class="gallery-img gallery-img--mobile" />
-              </picture>
-              <div class="gallery-overlay">
-                <span class="gallery-label">📱 Mobile View</span>
-              </div>
-            </div>
-            <div class="gallery-info">
-              <h3>Mobile-Ready UI</h3>
-              <p>Fully responsive · PWA-capable · Touch-optimised</p>
-              <div class="gallery-dims">390 × 844 px &nbsp;·&nbsp; mobile (iPhone 14)</div>
-            </div>
-          </div>
-
-          <!-- Card 5 — Auth/Login -->
-          <div class="gallery-card reveal reveal-delay-1">
-            <div class="gallery-thumb" style="background: linear-gradient(135deg, #7f1d1d 0%, #dc2626 60%, #f87171 100%);">
-              <picture>
-                <source media="(min-width: 1024px)" srcset="images/snapshot-auth-900.webp 1x, images/snapshot-auth-1800.webp 2x" />
-                <source media="(min-width: 640px)" srcset="images/snapshot-auth-600.webp 1x, images/snapshot-auth-1200.webp 2x" />
-                <img src="images/snapshot-auth-400.webp" alt="Auth0 SSO login screen" loading="lazy" width="900" height="500" class="gallery-img" />
-              </picture>
-              <div class="gallery-overlay">
-                <span class="gallery-label">🔐 Auth0 SSO</span>
-              </div>
-            </div>
-            <div class="gallery-info">
-              <h3>Auth0 SSO Integration</h3>
-              <p>Secure login · Silent token refresh · Role-based guards</p>
-              <div class="gallery-dims">900 × 500 px &nbsp;·&nbsp; desktop</div>
-            </div>
-          </div>
-
-          <!-- Card 6 — API Test Report -->
-          <div class="gallery-card reveal reveal-delay-2">
-            <div class="gallery-thumb" style="background: linear-gradient(135deg, #1c1917 0%, #44403c 60%, #a8a29e 100%);">
-              <picture>
-                <source media="(min-width: 1024px)" srcset="images/snapshot-tests-900.webp 1x, images/snapshot-tests-1800.webp 2x" />
-                <source media="(min-width: 640px)" srcset="images/snapshot-tests-600.webp 1x, images/snapshot-tests-1200.webp 2x" />
-                <img src="images/snapshot-tests-400.webp" alt="100% API test coverage report" loading="lazy" width="900" height="500" class="gallery-img" />
-              </picture>
-              <div class="gallery-overlay">
-                <span class="gallery-label">🧪 100% Test Coverage</span>
-              </div>
-            </div>
-            <div class="gallery-info">
-              <h3>API Test Coverage Report</h3>
-              <p>Happy paths · Edge cases · Security assertions · Zero regressions</p>
-              <div class="gallery-dims">900 × 500 px &nbsp;·&nbsp; desktop</div>
-            </div>
-          </div>
-
-        </div>
-
-        <p class="gallery-note">
-          ℹ️ Colored placeholders are shown above — replace with actual screenshots once available.<br />
-          See image dimensions noted on each card for guidance.
-        </p>
-      </div>
-    </section>
-
-    <!-- ════════════════════════════ ROADMAP ════════════════════════════ -->
-    <section class="roadmap" id="roadmap">
-      <div class="container">
-        <div class="section-header reveal">
-          <h2 class="section-title">Roadmap at a Glance</h2>
-          <p class="section-subtitle">Four MVPs, each building on the last.</p>
-        </div>
-
-        <div class="roadmap-track">
-
-          <div class="roadmap-item reveal">
-            <div class="roadmap-marker done">✅</div>
-            <div class="roadmap-card">
-              <div class="roadmap-header">
-                <span class="roadmap-label done">COMPLETE</span>
-                <h3>MVP 1 — Foundation</h3>
-              </div>
-              <ul class="roadmap-list">
-                <li>Prototype UI (Angular + MFE)</li>
-                <li>Auth0 SSO &amp; RBAC</li>
-                <li>REST API + 100% test coverage</li>
-                <li>Data compliance &amp; security</li>
-                <li>Dual DB (on-prem / off-prem)</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="roadmap-item reveal reveal-delay-1">
-            <div class="roadmap-marker upcoming">🔵</div>
-            <div class="roadmap-card">
-              <div class="roadmap-header">
-                <span class="roadmap-label upcoming">UPCOMING</span>
-                <h3>MVP 2 — Visibility &amp; Scale</h3>
-              </div>
-              <ul class="roadmap-list">
-                <li>Analytics foundation &amp; Sales Dashboard v1</li>
-                <li>Observability stack (logs, traces, alerts)</li>
-                <li>Scalable APIs with caching (Redis)</li>
-                <li>Mobile-friendly UI &amp; PWA</li>
-                <li>CDN hosting (CloudFront / Fastly)</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="roadmap-item reveal reveal-delay-2">
-            <div class="roadmap-marker planned">🟠</div>
-            <div class="roadmap-card">
-              <div class="roadmap-header">
-                <span class="roadmap-label planned">PLANNED</span>
-                <h3>MVP 3 — Intelligence</h3>
-              </div>
-              <ul class="roadmap-list">
-                <li>AI-driven incentive calculation</li>
-                <li>Anomaly detection &amp; trend forecasting</li>
-                <li>High-powered bulk &amp; reconciliation APIs</li>
-                <li>Advanced sales leaderboards</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="roadmap-item reveal reveal-delay-3">
-            <div class="roadmap-marker planned">🟠</div>
-            <div class="roadmap-card">
-              <div class="roadmap-header">
-                <span class="roadmap-label planned">PLANNED</span>
-                <h3>MVP 4 — Platform Maturity</h3>
-              </div>
-              <ul class="roadmap-list">
-                <li>Analytics Dashboard for sales executives</li>
-                <li>User management dashboard</li>
-                <li>White-labelling &amp; dark mode</li>
-                <li>General Availability (v1.0)</li>
+            <div class="forecast-warning">
+              <strong>&#x26A0;&#xFE0F; Schedule killers to avoid:</strong>
+              <ul>
+                <li>Spending &gt;2 h debugging infrastructure &mdash; use managed defaults</li>
+                <li>Writing tests from scratch instead of AI-scaffold + review</li>
+                <li>Making the UI pixel-perfect (explicitly out of scope per rubric)</li>
               </ul>
             </div>
           </div>
@@ -547,287 +480,288 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════ ARCHITECTURE ════════════════════════════ -->
-    <section class="architecture" id="architecture">
+
+    <!-- ===== COST FORECAST ===== -->
+    <section class="forecast-section forecast-section--alt" id="cost-forecast">
       <div class="container">
         <div class="section-header reveal">
-          <h2 class="section-title">Architecture</h2>
-          <p class="section-subtitle">Micro-Frontend + Serverless — every layer independently deployable.</p>
+          <span class="badge badge-purple">Dev: ~$60&ndash;140 &middot; Prod @ 1 k buyers: ~$810/month</span>
+          <h2 class="section-title">Cost Forecast</h2>
+          <p class="section-subtitle">
+            Development phase costs plus monthly operating costs at 1,000 active buyers.
+            LLM is the dominant cost driver &mdash; not infrastructure.
+          </p>
         </div>
-        <div class="arch-grid">
-          <div class="arch-card reveal">
-            <div class="arch-layer">Shell UI</div>
-            <p>MFE orchestration · Auth · Feature flags · Error boundary</p>
-            <div class="arch-stack">Angular · Module Federation</div>
+        <div class="cost-grid reveal">
+
+          <div class="forecast-card">
+            <h3 class="forecast-card-title">Development Phase</h3>
+            <div class="table-wrap">
+              <table class="forecast-table">
+                <thead><tr><th>Item</th><th>Est. Cost</th></tr></thead>
+                <tbody>
+                  <tr><td>LLM API calls (dev + iteration, ~500 k tokens)</td><td>$30&ndash;80</td></tr>
+                  <tr><td>AWS dev environment (RDS t3.micro, Lambda, S3, CF)</td><td>$20&ndash;40</td></tr>
+                  <tr><td>Miscellaneous (domain, SES, misc tooling)</td><td>$10&ndash;20</td></tr>
+                  <tr class="tbl-total"><td><strong>Total dev cost</strong></td><td><strong>$60&ndash;140</strong></td></tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-          <div class="arch-arrow" aria-hidden="true">↓</div>
-          <div class="arch-card reveal reveal-delay-1">
-            <div class="arch-layer">Micro-Frontends</div>
-            <p>Domain UIs (Rules, Dashboard, Analytics) — independently deployable</p>
-            <div class="arch-stack">Angular · TypeScript</div>
+
+          <div class="forecast-card">
+            <h3 class="forecast-card-title">Monthly Infrastructure @ 1,000 Buyers</h3>
+            <p class="forecast-card-note">5,000 RFQs/month &middot; 2,000 vision calls &middot; 120 analytics widget calls/month</p>
+            <div class="table-wrap">
+              <table class="forecast-table">
+                <thead><tr><th>Service</th><th>Config</th><th>$/month</th></tr></thead>
+                <tbody>
+                  <tr><td>RDS PostgreSQL + pgvector</td><td>db.t3.medium, no Multi-AZ</td><td>$55</td></tr>
+                  <tr><td>Lambda + API Gateway</td><td>~10 M requests/month</td><td>$20&ndash;30</td></tr>
+                  <tr><td>S3 + CloudFront (MFEs + assets)</td><td>50 GB transfer</td><td>$15&ndash;25</td></tr>
+                  <tr><td>Secrets Manager</td><td>10 secrets</td><td>$2</td></tr>
+                  <tr><td>Route53</td><td>1 hosted zone</td><td>$1</td></tr>
+                  <tr><td>SES (password reset)</td><td>5,000 emails/month</td><td>$1</td></tr>
+                  <tr class="tbl-total"><td colspan="2"><strong>Infrastructure subtotal</strong></td><td><strong>$94&ndash;114</strong></td></tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-          <div class="arch-arrow" aria-hidden="true">↓</div>
-          <div class="arch-card reveal reveal-delay-2">
-            <div class="arch-layer">API Layer</div>
-            <p>Thin Lambda adapters → pure service functions</p>
-            <div class="arch-stack">AWS Lambda · middy</div>
+
+          <div class="forecast-card forecast-card--wide">
+            <h3 class="forecast-card-title">Monthly LLM / AI Costs @ 1,000 Buyers</h3>
+            <div class="table-wrap">
+              <table class="forecast-table">
+                <thead><tr><th>Agent / Use</th><th>Model</th><th>Volume</th><th>$/call</th><th>$/month</th></tr></thead>
+                <tbody>
+                  <tr><td>Intake agent (text RFQ extraction)</td><td>GPT-4o-mini</td><td>5,000 RFQs</td><td>$0.01</td><td>$50</td></tr>
+                  <tr><td>Intake agent clarifying turns (avg x2)</td><td>GPT-4o-mini</td><td>10,000 turns</td><td>$0.005</td><td>$50</td></tr>
+                  <tr><td>Vision agent (image to spec)</td><td>GPT-4o</td><td>2,000 images</td><td>$0.05</td><td>$100</td></tr>
+                  <tr><td>Embedding generation</td><td>text-embedding-3-small</td><td>5,000 RFQs + 50 suppliers</td><td>$0.002</td><td>$10</td></tr>
+                  <tr><td>Orchestration agent (match + normalise + anomaly)</td><td>GPT-4o</td><td>5,000 RFQs</td><td>$0.10</td><td class="col-highlight"><strong>$500</strong></td></tr>
+                  <tr><td>Analytics insight widget</td><td>GPT-4o-mini</td><td>120 calls</td><td>$0.02</td><td>$2.40</td></tr>
+                  <tr class="tbl-total"><td colspan="4"><strong>LLM subtotal</strong></td><td><strong>~$712</strong></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="cost-summary-grid">
+              <div class="cost-kpi"><span class="cost-kpi-label">Grand total / month</span><span class="cost-kpi-value">~$806&ndash;826</span></div>
+              <div class="cost-kpi"><span class="cost-kpi-label">Per active buyer</span><span class="cost-kpi-value">~$0.82</span></div>
+              <div class="cost-kpi"><span class="cost-kpi-label">Per RFQ</span><span class="cost-kpi-value">~$0.16</span></div>
+              <div class="cost-kpi"><span class="cost-kpi-label">At 10x scale (10 k buyers)</span><span class="cost-kpi-value">~$7,500/month</span></div>
+            </div>
+            <div class="forecast-warning">
+              <strong>&#x1F4A1; Optimisation levers:</strong>
+              <ul>
+                <li>Replace GPT-4o with Claude 3.5 Haiku for orchestration &rarr; LLM bill drops ~30% (~$570/month)</li>
+                <li>Cache supplier embeddings (re-embed on catalogue changes only) &rarr; embedding cost near $0</li>
+                <li>At 10x scale LLM is the dominant cost driver; infrastructure scales sub-linearly</li>
+              </ul>
+            </div>
           </div>
-          <div class="arch-arrow" aria-hidden="true">↓</div>
-          <div class="arch-card reveal reveal-delay-3">
-            <div class="arch-layer">Infrastructure as Code</div>
-            <p>Parameterised stacks per environment (dev / staging / prod)</p>
-            <div class="arch-stack">SST v3 · AWS CDK (TypeScript)</div>
-          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- ════════════════════════════ ABOUT US ════════════════════════════ -->
-    <section class="about" id="about">
-      <div class="container">
-        <div class="about-inner">
-          <div class="about-text reveal">
-            <span class="badge badge-purple">About Us</span>
-            <h2 class="section-title">Built with Strong Opinions<br />About Good Software</h2>
-            <p>
-              i17e was born from a real problem: managing sales incentives at scale in financial
-              institutions involves <strong>too many spreadsheets, too many manual steps, and too many
-              reconciliation headaches.</strong>
-            </p>
-            <p>
-              In just <strong>four months</strong> we built a fully working system — complete with
-              a secure API, Auth0 SSO, a configurable rule engine, dual-database support,
-              and data compliance from day one. Not a mockup. A real, running platform.
-            </p>
-            <p>
-              Every architecture decision is made with <em>scale, security, and
-              auditability</em> in mind — the non-negotiables for any financial institution.
-            </p>
-            <div class="about-badges">
-              <span class="tech-badge">Angular</span>
-              <span class="tech-badge">TypeScript</span>
-              <span class="tech-badge">AWS Lambda</span>
-              <span class="tech-badge">Auth0</span>
-              <span class="tech-badge">MongoDB</span>
-              <span class="tech-badge">SST v3</span>
-            </div>
-          </div>
-          <div class="about-visual reveal reveal-delay-1">
-            <div class="values-grid">
-              <div class="value-card">
-                <span class="value-icon">🚀</span>
-                <h4>Ship Fast</h4>
-                <p>MVPs that prove the concept before committing to full scale.</p>
-              </div>
-              <div class="value-card">
-                <span class="value-icon">🧪</span>
-                <h4>Test Everything</h4>
-                <p>100% automated API coverage. No regressions, ever.</p>
-              </div>
-              <div class="value-card">
-                <span class="value-icon">🔐</span>
-                <h4>Secure by Default</h4>
-                <p>Auth, CORS, sanitisation, and HTTPS from commit one.</p>
-              </div>
-              <div class="value-card">
-                <span class="value-icon">📐</span>
-                <h4>Built to Scale</h4>
-                <p>Serverless, pluggable adapters, and CDN-ready from the ground up.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ════════════════════════════ SECURITY ════════════════════════════ -->
-    <section class="security" id="security">
+    <!-- ===== SUCCESS FORECAST ===== -->
+    <section class="forecast-section" id="success-forecast">
       <div class="container">
         <div class="section-header reveal">
-          <span class="badge badge-blue">Security &amp; Compliance</span>
-          <h2 class="section-title">Designed for Financial Institutions</h2>
-          <p class="section-subtitle">Banks and NBFCs operate under strict regulatory obligations. i17e is built to meet those expectations from the ground up.</p>
+          <span class="badge badge-blue">Prior estimate &mdash; updated as you share context</span>
+          <h2 class="section-title">Success-Rate Forecast</h2>
+          <p class="section-subtitle">
+            Calibrated prior for a strong senior engineer with good AI fluency.
+            Share your background in the README Session Log to sharpen these numbers.
+          </p>
         </div>
-        <div class="security-grid">
-          <div class="security-card reveal">
-            <div class="security-icon">🔐</div>
-            <h3>Secure Authentication</h3>
-            <p>Auth0-powered SSO with OAuth 2.0, multi-tenant isolation, role-based access control, and automatic token refresh. Access is governed by role and organisation — no exceptions.</p>
-          </div>
-          <div class="security-card reveal reveal-delay-1">
-            <div class="security-icon">📋</div>
-            <h3>Audit-Ready Logging</h3>
-            <p>Every configuration change, incentive calculation, and payout event is logged with timestamps and actor identity. Full traceability for internal and external audits.</p>
-          </div>
-          <div class="security-card reveal reveal-delay-2">
-            <div class="security-icon">🛡️</div>
-            <h3>Compliance-Ready Architecture</h3>
-            <p>No PII stored. HTTPS-only. CORS-controlled. Input sanitisation on every endpoint. Secrets managed via environment configuration — never hardcoded.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <div class="success-grid reveal">
 
-    <!-- ════════════════════════════ FINAL CTA ════════════════════════════ -->
-    <section class="final-cta" id="cta">
-      <div class="container">
-        <div class="final-cta-inner reveal">
-          <h2 class="final-cta-title">Ready to Replace Excel?</h2>
-          <p class="final-cta-sub">See how i17e can automate your incentive workflows. Contact us to schedule a walkthrough for your team.</p>
-          <a href="#contact" class="btn btn-primary btn-lg">Contact Us to Get Started &rarr;</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ════════════════════════════ CONTACT US ════════════════════════════ -->
-    <section class="contact" id="contact">
-      <div class="container">
-        <div class="section-header reveal">
-          <h2 class="section-title">Get in Touch</h2>
-          <p class="section-subtitle">Interested in a demo, partnership, or just want to say hi? Drop us a message.</p>
-        </div>
-
-        <div class="contact-inner">
-
-          <div class="contact-info reveal">
-            <div class="contact-item">
-              <span class="contact-icon">🌐</span>
-              <div>
-                <strong>Live Demo</strong>
-                <a href="https://opensourcekd.github.io/i17e/" target="_blank" rel="noopener">opensourcekd.github.io/i17e</a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <span class="contact-icon">💻</span>
-              <div>
-                <strong>GitHub</strong>
-                <a href="https://github.com/OpensourceKD" target="_blank" rel="noopener">github.com/OpensourceKD</a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <span class="contact-icon">📧</span>
-              <div>
-                <strong>Email</strong>
-                <span>Available via GitHub profile</span>
-              </div>
+          <div class="forecast-card">
+            <h3 class="forecast-card-title">Rubric Score Forecast</h3>
+            <div class="table-wrap">
+              <table class="forecast-table">
+                <thead><tr><th>Dimension</th><th>Weight</th><th>Likely Score</th><th>Key note</th></tr></thead>
+                <tbody>
+                  <tr><td>Technical depth &amp; architecture</td><td>20</td><td class="col-highlight">15&ndash;18</td><td>Modular monolith with clear seams; full marks if code matches docs</td></tr>
+                  <tr><td>AI engineering quality</td><td>25</td><td class="col-highlight">18&ndash;22</td><td>Real evals + guardrails + structured logs is the differentiator</td></tr>
+                  <tr><td>Product judgement</td><td>15</td><td class="col-highlight">11&ndash;13</td><td>Score rises if cuts are documented and UX empathy is visible</td></tr>
+                  <tr><td>Documentation quality</td><td>15</td><td class="col-highlight">11&ndash;13</td><td>AI System Cards with latency/cost from actual runs earn top marks</td></tr>
+                  <tr><td>AI-leveraged velocity (with evidence)</td><td>15</td><td class="col-highlight">12&ndash;14</td><td>Specific, honest AI Usage Log required &mdash; generic logs fail</td></tr>
+                  <tr><td>Honesty &amp; self-assessment</td><td>10</td><td class="col-highlight">8&ndash;9</td><td>Flag what is broken; never claim everything works</td></tr>
+                  <tr class="tbl-total"><td><strong>Projected total</strong></td><td><strong>100</strong></td><td class="col-highlight"><strong>75&ndash;89 / 100</strong></td><td></td></tr>
+                </tbody>
+              </table>
             </div>
           </div>
 
-          <div class="contact-form-area reveal reveal-delay-1">
-
-            <!-- Contact form — hidden once submitted -->
-            <form class="contact-form" id="contact-form"
-                  data-action="https://noq8dav0ac.execute-api.us-east-1.amazonaws.com/telemetry/contact"
-                  novalidate>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="name">Full Name <span class="required" aria-hidden="true">*</span></label>
-                  <input type="text" id="name" name="name" placeholder="Jane Smith" autocomplete="name" required />
-                  <span class="form-error" id="name-error" role="alert"></span>
-                </div>
-                <div class="form-group">
-                  <label for="email">Email Address <span class="required" aria-hidden="true">*</span></label>
-                  <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" required />
-                  <span class="form-error" id="email-error" role="alert"></span>
+          <div class="forecast-card">
+            <h3 class="forecast-card-title">Scenario Analysis</h3>
+            <div class="scenario-list">
+              <div class="scenario scenario--star">
+                <div class="scenario-score">90&ndash;96</div>
+                <div class="scenario-body">
+                  <strong>&#x2B50; Best case</strong>
+                  <p>All agents shipped + AI System Cards are real + video live AI workflow is fluent &rarr; <em>Offer designed same week</em></p>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="subject">Subject <span class="required" aria-hidden="true">*</span></label>
-                <select id="subject" name="subject" required>
-                  <option value="">Select a topic…</option>
-                  <option value="demo">Request a Demo</option>
-                  <option value="partnership">Partnership Enquiry</option>
-                  <option value="technical">Technical Question</option>
-                  <option value="other">Other</option>
-                </select>
-                <span class="form-error" id="subject-error" role="alert"></span>
+              <div class="scenario scenario--green">
+                <div class="scenario-score">85&ndash;92</div>
+                <div class="scenario-body">
+                  <strong>&#x2705; Target</strong>
+                  <p>Strong AI fluency, all core agents ship, real evals logged, honest cuts documented &rarr; <em>Hire territory / fast offer</em></p>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="message">Message <span class="required" aria-hidden="true">*</span></label>
-                <textarea id="message" name="message" rows="5" placeholder="Tell us about your use case or question…" required></textarea>
-                <span class="form-error" id="message-error" role="alert"></span>
+              <div class="scenario scenario--yellow">
+                <div class="scenario-score">70&ndash;78</div>
+                <div class="scenario-body">
+                  <strong>&#x26A0;&#xFE0F; Acceptable</strong>
+                  <p>Most features shipped, evals skipped, generic AI Usage Log, docs thin &rarr; <em>Gets a real conversation</em></p>
+                </div>
               </div>
-              <button type="submit" class="btn btn-primary btn-lg btn-full" id="submit-btn">
-                <span class="btn-text">Send Message</span>
-              </button>
-            </form>
-
-            <!-- Success panel — fades in after submission -->
-            <div class="contact-success-panel" id="contact-success-panel" aria-hidden="true" aria-live="polite">
-              <div class="success-icon" aria-hidden="true">✅</div>
-              <h3 class="success-title">Message Sent!</h3>
-              <p class="success-text">Thank you for reaching out. We'll be in touch soon.</p>
-              <a href="#features" class="btn btn-outline">Explore Features</a>
+              <div class="scenario scenario--red">
+                <div class="scenario-score">55&ndash;68</div>
+                <div class="scenario-body">
+                  <strong>&#x274C; At risk</strong>
+                  <p>Over-scoped, ran out of time, UI heavy but pipeline incomplete, no AI Usage Log &rarr; <em>Likely pass</em></p>
+                </div>
+              </div>
             </div>
-
+            <div class="levers">
+              <h4>Top 3 Score Levers</h4>
+              <ol class="lever-list">
+                <li><strong>Orchestration agent quality</strong> &mdash; Explicitly the one closest to real Pactap work. A working, logged, anomaly-detecting agent beats a beautiful UI.</li>
+                <li><strong>Honest AI Usage Log</strong> &mdash; A generic log is an automatic fail on a 15-point dimension. Write it as you go; never reconstruct at the end.</li>
+                <li><strong>Real evals, not vibes</strong> &mdash; Logging <code>eval_verdict: pass/fail</code> with schema validation on every agent run separates a senior AI engineer from someone who just calls the API.</li>
+              </ol>
+            </div>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== AI USAGE LOG ===== -->
+    <section class="forecast-section forecast-section--alt" id="ai-log">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="badge badge-green">Append-only &middot; Required for the 15-point AI velocity dimension</span>
+          <h2 class="section-title">AI Usage Log</h2>
+          <p class="section-subtitle">
+            Every significant AI interaction is logged here and in <code>/docs/AI_USAGE.md</code>.
+            Generic logs fail automatically &mdash; record model, prompt intent, tokens,
+            and an honest verdict for every entry.
+          </p>
+        </div>
+        <div class="reveal">
+          <div class="table-wrap">
+            <table class="forecast-table ai-log-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Tool / Model</th>
+                  <th>Task</th>
+                  <th>Input summary</th>
+                  <th>Output quality</th>
+                  <th>Tokens (est.)</th>
+                  <th>Verdict</th>
+                </tr>
+              </thead>
+              <tbody id="ai-log-body">
+                <tr>
+                  <td>2026-05-14</td>
+                  <td>GitHub Copilot (Claude Sonnet 4.5)</td>
+                  <td>Generate master README hub: full checklist, time forecast, cost forecast, success-rate forecast</td>
+                  <td>Full assignment brief + build checklist</td>
+                  <td>Complete README with all sections; accurate cost/time modelling</td>
+                  <td>~3,000</td>
+                  <td><span class="verdict verdict--pass">PASS</span></td>
+                </tr>
+                <tr>
+                  <td>2026-05-14</td>
+                  <td>GitHub Copilot (Claude Sonnet 4.5)</td>
+                  <td>Rewrite static site as InkRamp build-status dashboard with interactive 97-item checklist, forecast tables, scenario analysis, and AI log</td>
+                  <td>Existing i17e HTML/CSS/JS + README + assignment brief</td>
+                  <td>Complete site rewrite with all 13 checklist categories, localStorage persistence, forecast tables</td>
+                  <td>~6,000</td>
+                  <td><span class="verdict verdict--pass">PASS</span></td>
+                </tr>
+                <tr class="ai-log-placeholder">
+                  <td colspan="7"><em>Add new rows here as you use AI tools during the build. Each row = one significant interaction. Be honest about the verdict (PASS / PARTIAL / FAIL).</em></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="ai-log-legend">
+            <span class="verdict verdict--pass">PASS</span> AI output correct and used as-is or with minor edits &nbsp;&middot;&nbsp;
+            <span class="verdict verdict--partial">PARTIAL</span> AI output required significant rework &nbsp;&middot;&nbsp;
+            <span class="verdict verdict--fail">FAIL</span> AI output wrong; discarded and done manually
+          </p>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ════════════════════════════ FOOTER ════════════════════════════ -->
+
+  <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-inner">
-
         <div class="footer-brand">
-          <a href="#home" class="logo" aria-label="i17e home">
-            <span class="logo-mark">i<span class="logo-accent">17</span>e</span>
+          <a href="#home" class="logo" aria-label="InkRamp home">
+            <span class="logo-mark">Ink<span class="logo-accent">Ramp</span></span>
           </a>
           <p class="footer-tagline">
-            Automate sales incentives beyond Excel — rule-based engine, real-time tracking, and automated payouts for banks and NBFCs.
+            B2B print procurement marketplace &mdash; AI-powered RFQ, supplier matching,
+            and quote normalisation built as a Pactap engineering take-home.
           </p>
           <div class="footer-social">
-            <a href="https://github.com/OpensourceKD" target="_blank" rel="noopener" aria-label="GitHub">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            <a href="https://github.com/InkRamp" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
             </a>
           </div>
         </div>
-
         <div class="footer-links">
           <div class="footer-col">
-            <h4>Platform</h4>
+            <h4>Build Status</h4>
             <ul>
-              <li><a href="#how-it-works">How It Works</a></li>
-              <li><a href="#features">Features</a></li>
-              <li><a href="#security">Security</a></li>
-              <li><a href="#roadmap">Roadmap</a></li>
+              <li><a href="#checklist">Checklist</a></li>
+              <li><a href="#time-forecast">Time Forecast</a></li>
+              <li><a href="#cost-forecast">Cost Forecast</a></li>
+              <li><a href="#success-forecast">Success Forecast</a></li>
             </ul>
           </div>
           <div class="footer-col">
-            <h4>Company</h4>
+            <h4>AI &amp; Docs</h4>
             <ul>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#roles">User Roles</a></li>
-              <li><a href="#contact">Contact Us</a></li>
-              <li><a href="https://github.com/OpensourceKD" target="_blank" rel="noopener">GitHub</a></li>
+              <li><a href="#ai-log">AI Usage Log</a></li>
+              <li><a href="README.md">README</a></li>
             </ul>
           </div>
           <div class="footer-col">
-            <h4>Tech Stack</h4>
+            <h4>Stack</h4>
             <ul>
-              <li><span>Angular + TypeScript</span></li>
-              <li><span>AWS Lambda + middy</span></li>
-              <li><span>Auth0 SSO</span></li>
-              <li><span>MongoDB (On-Prem / Cloud)</span></li>
+              <li><span>Node.js + TypeScript</span></li>
+              <li><span>Angular MFEs</span></li>
+              <li><span>AWS Lambda + RDS</span></li>
+              <li><span>PostgreSQL + pgvector</span></li>
+              <li><span>OpenAI / Anthropic</span></li>
             </ul>
           </div>
         </div>
-
       </div>
-
       <div class="footer-bottom">
-        <p>&copy; <span id="footer-year"></span> i17e. Built with ☕ and strong opinions about good software.</p>
-        <p><a href="https://opensourcekd.github.io/i17e/" target="_blank" rel="noopener">opensourcekd.github.io/i17e</a></p>
+        <p>&copy; <span id="footer-year"></span> InkRamp &mdash; Pactap Head of Engineering take-home. Last updated: 2026-05-14.</p>
       </div>
     </div>
   </footer>
 
-  <a href="#home" class="back-to-top" id="back-to-top" aria-label="Back to top">↑</a>
-
+  <a href="#home" class="back-to-top" id="back-to-top" aria-label="Back to top">&uarr;</a>
   <script src="js/main.js"></script>
 </body>
 </html>

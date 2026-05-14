@@ -1,4 +1,4 @@
-/* main.js — i17e static site */
+/* main.js — InkRamp Build Status site */
 (function () {
   'use strict';
 
@@ -81,11 +81,10 @@
           }
         });
       },
-      { threshold: 0.12 }
+      { threshold: 0.08 }
     );
     revealEls.forEach(el => observer.observe(el));
   } else {
-    /* Fallback: show all immediately */
     revealEls.forEach(el => el.classList.add('visible'));
   }
 
@@ -105,141 +104,91 @@
   const yearEl = $('#footer-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ── Contact form validation & submit ────────────────────────── */
-  const contactSection = $('#contact');
-  const form           = $('#contact-form');
-  const submitBtn      = $('#submit-btn');
-  const successPanel   = $('#contact-success-panel');
+  /* ── Checklist: localStorage persistence & live progress ─── */
 
-  if (!form) return;
+  const STORAGE_KEY  = 'inkramp_checklist_v1';
+  const TOTAL_ITEMS  = 97;
 
-  /* Restore submitted state from sessionStorage (same browser session) */
-  if (sessionStorage.getItem('i17e_contact_sent') === '1') {
-    contactSection.classList.add('contact--sent');
-    successPanel.setAttribute('aria-hidden', 'false');
+  /* Category totals — must match the HTML */
+  const CAT_TOTALS = {
+    infra:         9,
+    auth:          7,
+    catalog:       6,
+    intake:        8,
+    vision:        5,
+    rfq:           5,
+    orch:          7,
+    'docs-ai':     5,
+    analytics:     7,
+    security:      8,
+    testing:       4,
+    documentation: 14,
+    deliverables:  12,
+  };
+
+  /* Load saved state */
+  let saved = {};
+  try {
+    saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+  } catch (_) {
+    saved = {};
   }
 
-  const rules = {
-    name: {
-      validate: v => v.trim().length >= 2,
-      message:  'Please enter your full name (at least 2 characters).'
-    },
-    email: {
-      validate: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
-      message:  'Please enter a valid email address.'
-    },
-    subject: {
-      validate: v => v !== '',
-      message:  'Please select a topic.'
-    },
-    message: {
-      validate: v => v.trim().length >= 10,
-      message:  'Please enter a message (at least 10 characters).'
-    }
-  };
+  /* Restore checkboxes from saved state */
+  $$('input[type="checkbox"][data-key]').forEach(cb => {
+    if (saved[cb.dataset.key]) cb.checked = true;
+  });
 
-  const showError = (name, msg) => {
-    const input = form.elements[name];
-    const error = $('#' + name + '-error');
-    if (!input || !error) return;
-    input.classList.add('error');
-    error.textContent = msg;
-    input.setAttribute('aria-describedby', name + '-error');
-  };
+  /* Recalculate and render all progress indicators */
+  function refreshProgress() {
+    let totalDone = 0;
 
-  const clearError = (name) => {
-    const input = form.elements[name];
-    const error = $('#' + name + '-error');
-    if (!input || !error) return;
-    input.classList.remove('error');
-    error.textContent = '';
-    input.removeAttribute('aria-describedby');
-  };
+    Object.keys(CAT_TOTALS).forEach(cat => {
+      const catTotal = CAT_TOTALS[cat];
+      const done = $$(`input[data-key^="${cat}-"]`)
+        .filter(cb => cb.checked).length;
 
-  /* Live validation on blur */
-  Object.keys(rules).forEach(name => {
-    const input = form.elements[name];
-    if (!input) return;
-    input.addEventListener('blur', () => {
-      if (!rules[name].validate(input.value)) {
-        showError(name, rules[name].message);
-      } else {
-        clearError(name);
-      }
+      totalDone += done;
+
+      const pct = catTotal > 0 ? Math.round((done / catTotal) * 100) : 0;
+
+      /* Update text badge */
+      const badge = $(`[data-cat-progress="${cat}"]`);
+      if (badge) badge.textContent = `${done} / ${catTotal}`;
+
+      /* Update mini bar */
+      const bar = $(`[data-cat-bar="${cat}"]`);
+      if (bar) bar.style.width = pct + '%';
     });
-    input.addEventListener('input', () => {
-      if (input.classList.contains('error') && rules[name].validate(input.value)) {
-        clearError(name);
-      }
+
+    /* Overall progress */
+    const overallPct = Math.round((totalDone / TOTAL_ITEMS) * 100);
+
+    const overallCount = $('#overall-count');
+    if (overallCount) overallCount.textContent = `${totalDone} / ${TOTAL_ITEMS} items`;
+
+    const overallBar = $('#overall-bar');
+    if (overallBar) overallBar.style.width = overallPct + '%';
+
+    const overallWrapper = $('#overall-bar-wrapper');
+    if (overallWrapper) overallWrapper.setAttribute('aria-valuenow', totalDone);
+
+    const statComplete = $('#stat-complete');
+    if (statComplete) statComplete.textContent = totalDone;
+  }
+
+  /* Save state on change */
+  $$('input[type="checkbox"][data-key]').forEach(cb => {
+    cb.addEventListener('change', () => {
+      saved[cb.dataset.key] = cb.checked;
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+      } catch (_) { /* storage full — fail silently */ }
+      refreshProgress();
     });
   });
 
-  form.addEventListener('submit', async e => {
-    e.preventDefault();
-
-    /* Client-side validation */
-    let valid = true;
-    Object.keys(rules).forEach(name => {
-      const input = form.elements[name];
-      if (!input) return;
-      if (!rules[name].validate(input.value)) {
-        showError(name, rules[name].message);
-        valid = false;
-      } else {
-        clearError(name);
-      }
-    });
-
-    if (!valid) {
-      const firstError = form.querySelector('.error');
-      if (firstError) firstError.focus();
-      return;
-    }
-
-    /* Submit — CSS handles the button loading label via aria-busy */
-    submitBtn.disabled = true;
-    submitBtn.setAttribute('aria-busy', 'true');
-
-    try {
-      const endpoint = form.dataset.action;
-
-      const payload = {};
-      Object.keys(rules).forEach(name => {
-        payload[name] = form.elements[name].value;
-      });
-
-      const res = await fetch(endpoint, {
-        method:  'POST',
-        body:    JSON.stringify(payload),
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
-      });
-
-      if (!res.ok) throw new Error('Network response was not ok');
-
-      /* Persist success across refreshes for this browser session */
-      sessionStorage.setItem('i17e_contact_sent', '1');
-
-      /* CSS transitions take over: form fades out, success panel fades in */
-      contactSection.classList.add('contact--sent');
-      successPanel.setAttribute('aria-hidden', 'false');
-      successPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
-    } catch (err) {
-      /* Re-enable the button so the user can retry */
-      submitBtn.disabled = false;
-      submitBtn.removeAttribute('aria-busy');
-      console.error('Form submission failed:', err);
-
-      /* Surface a simple inline error without showing the panel */
-      const existingErr = form.querySelector('.submit-error');
-      if (!existingErr) {
-        const errMsg = document.createElement('p');
-        errMsg.className = 'form-error submit-error';
-        errMsg.setAttribute('role', 'alert');
-        errMsg.textContent = 'Something went wrong — please try again or reach out via GitHub.';
-        submitBtn.insertAdjacentElement('afterend', errMsg);
-      }
-    }
-  });
+  /* Initial render */
+  refreshProgress();
 
 })();
